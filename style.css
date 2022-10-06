@@ -82,7 +82,7 @@
 }
 .heading {
   font-size: 32px;
-  font-family: Roboto Mono;
+  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   font-weight: 700;
   line-height: 1.15;
   text-transform: none;
