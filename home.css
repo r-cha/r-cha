@@ -6,7 +6,7 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: #d8d8d8;
+  background-color: var(--dl-color-bg);
 }
 .home-container1 {
   flex: 0 0 auto;
