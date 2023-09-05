@@ -51,13 +51,7 @@
   align-items: flex-start;
   justify-content: space-between;
 }
-.home-link4 {
-  text-decoration: none;
-}
-.home-link5 {
-  text-decoration: none;
-}
-.home-link6 {
+.social-link {
   text-decoration: none;
 }
 @media(max-width: 991px) {
