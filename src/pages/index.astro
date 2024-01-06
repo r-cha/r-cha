@@ -1,0 +1,39 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Projects from "../components/Projects.astro";
+import NavBar from "../components/NavBar.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      .content {
+        display: none;
+        position: absolute;
+        width: auto;
+      }
+      .content:target {
+        display: block;
+        position: absolute;
+        width: auto;
+        border-left: 1px solid white;
+        padding-left: 1rem;
+      }
+    </style></head
+  >
+
+  <body class="bg-black mt-8 mx-4 text-white flex justify-center">
+    <div class="text-left">
+      <Header />
+      <NavBar />
+      <div class="mt-4 text-left ml-4 sm:ml-0">
+        <div id="projects" class="content">
+          <Projects />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
