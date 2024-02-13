@@ -2,8 +2,9 @@
 import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import MiniHeader from "../components/MiniHeader.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import NavBar from "../components/NavBar.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -17,22 +18,26 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
   <body class="bg-black mt-8 mx-4 text-white flex justify-center">
     <main>
-      <MiniHeader />
+      <Header />
+      <NavBar />
       <article
-        class="prose prose-invert lg:prose-xl prose-a:no-underline hover:prose-a:underline prose-a:text-white prose-a:font-normal"
+        class="prose prose-invert lg:prose-xl prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal"
       >
-        <div class="title">
-          <div class="date">
-            <FormattedDate date={pubDate} />
+        <div>
+          <h1>{title}</h1>
+          <div class="-mt-4">
+            <em>
+              Published <FormattedDate date={pubDate} />
+            </em>
             {
               updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
+                <em>
+                  <br />
+                  Updated <FormattedDate date={updatedDate} />
+                </em>
               )
             }
           </div>
-          <h1>{title}</h1>
         </div>
         <div class="w-full">
           {

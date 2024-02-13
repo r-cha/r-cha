@@ -23,29 +23,29 @@ const projects = [
 ];
 ---
 
-<ul class="home-list list">
-  {
-    projects.map((project) => (
-      <li class="list-item">
-        <a
-          href={project.url}
-          target="_blank"
-          class="text-decoration hover:underline hover:text-neutral-200"
-        >
-          {project.name}
-        </a>
-        {project.source && (
-          <sup>
+<section class="w-auto border-white border-l pl-4">
+  <ul>
+    {
+      projects.map((project) => (
+        <li class="flex flex-row justify-between">
+          <a
+            href={project.url}
+            target="_blank"
+            class="text-decoration hover:underline hover:text-neutral-200"
+          >
+            {project.name}
+          </a>
+          {project.source && (
             <a
               href={project.source}
               target="_blank"
-              class="text-decoration hover:underline hover:text-neutral-200"
+              class="text-right text-decoration hover:underline hover:text-neutral-200"
             >
               [source]
             </a>
-          </sup>
-        )}
-      </li>
-    ))
-  }
-</ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</section>

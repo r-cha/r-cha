@@ -4,12 +4,6 @@ description: jesus follower. software engineer. musician.
 pubDate: "Jan 5 2024"
 ---
 
-<div class="ml-4 sm:ml-0">
-    <span class="block pl-4 my-4 text-left border-l border-l-white">
-        jesus follower. software engineer. musician.
-    </span>
-</div>
-
 To get to know me best, read my [Statement of Faith](/blog/statement-of-faith).
 
 I grew up in Atlanta, Georgia, and I currently live in Phoenix, Arizona. I
