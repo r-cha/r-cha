@@ -7,5 +7,13 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://r-cha.dev',
-  integrations: [mdx(), sitemap(), tailwind()]
+  integrations: [mdx(), sitemap(), tailwind()],
+  markdown: {
+    shikiConfig: {
+      // Choose from Shiki's built-in themes (or add your own)
+      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
+      theme: 'nord',
+      wrap: true,
+    },
+  },
 });

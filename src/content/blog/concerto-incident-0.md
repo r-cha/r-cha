@@ -72,6 +72,10 @@ if not song:
     )
 ```
 
+<aside>
+Reading on mobile? Sorry about the code formatting... shoot me a message if you know how to customize the rendering of shiki components generated from markdown in astro.
+</aside>
+
 You may already be able to identify the bug, but first let's roast the poor decisions that led here in the first place.
 
 Uploading a new file is the only way to create a new project or song.
@@ -127,8 +131,8 @@ celery_app.conf.beat_schedule = {
     "run-every-day": {
         # ...
         "options": {
-            # ensure we don't accumulate a huge backlog of these if the workers are down
-            "expires": 60 * 30,  # 60 seconds * 20 minutes
+            # don't accumulate a huge backlog
+            "expires": 60 * 30,
         },
     },
 }

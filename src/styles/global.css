@@ -7,7 +7,6 @@ aside {
 	@apply rounded-md;
 	@apply bg-gray-800;
 	@apply p-4;
-	text-wrap: balance;
 }
 
 .sr-only {

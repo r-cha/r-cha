@@ -11,17 +11,17 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="flex justify-center max-w-full">
   <head>
     <BaseHead title={title} description={description} />
   </head>
 
-  <body class="bg-black mt-8 mx-4 text-white flex justify-center">
+  <body class="bg-black mt-8 mx-4 text-white">
     <main>
       <Header />
       <NavBar />
       <article
-        class="prose prose-invert lg:prose-xl prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal"
+        class="prose prose-invert lg:prose-xl prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:rounded prose-inline-code:bg-slate-800 prose-inline-code:border prose-inline-code:border-gray-600 prose-inline-code:font-extralight"
       >
         <div>
           <h1>{title}</h1>
@@ -39,15 +39,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             }
           </div>
         </div>
-        <div class="w-full">
-          {
-            heroImage && (
+        {
+          heroImage && (
+            <div class="w-full">
               <div class="image-container">
                 <img class="image" src={heroImage} alt="" />
               </div>
-            )
-          }
-        </div>
+            </div>
+          )
+        }
         <slot />
       </article>
       <Footer />
