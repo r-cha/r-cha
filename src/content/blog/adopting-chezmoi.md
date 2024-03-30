@@ -12,7 +12,7 @@ So it was time to grow up and use a more formal dotfile manager.
 
 ## Conditions
 
-I don't ask for much here:
+I didn't ask for much here:
 - Keep my dotfiles usable with or without the tool
 - Make it easy to update from one machine and pull updates to another
 - Account for slight machine-to-machine variation (e.g. work vs personal)
@@ -102,7 +102,29 @@ I can't imagine why I would need to [sync secrets](https://www.chezmoi.io/user-g
 
 ## Conclusion
 
-chezmoi is mostly what I was looking for.
+Lets review my conditions:
+
+> Normal dotfiles
+
+Technically both yes and no.
+The repo itself renames things, changing the prefix from "." to "dot_",
+but after a `chezmoi apply`, the populated files have the right names.
+Plus, there are multiple [export options](https://www.chezmoi.io/user-guide/advanced/migrate-away-from-chezmoi/), so I'll call this a win.
+
+"Normal" is also a bit of a stretch for template files, but they're a necessity for per-machine tweaks.
+And again, there are export options, so 🤷🏼‍♂️
+
+> Easy syncing
+
+Easy as git ✅
+
+> Per-machine tweaks
+
+Templates, covered above ✅
+
+
+Overall, chezmoi is what I was looking for.
 It works differently than I expected (e.g. "dot_" prefixes), but the outcome is exactly what I wanted.
 
-I'm certain it will easily handle my occasional updates to kitty or nvim configs and grow with me as I use it to automate more of my cross-machine life.
+I'm certain it will easily handle my occasional updates to kitty or nvim configs
+and grow with me as I use it to automate more of my cross-machine life.
