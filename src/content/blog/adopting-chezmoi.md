@@ -39,11 +39,12 @@ After a quick `brew install chezmoi`, I was off to [the races](https://www.chezm
 
 ```sh
 chezmoi add ~/.zshrc
+chezmoi add ~/.gitconfig
 chezmoi add ~/.config/kitty
 chezmoi add ~/.config/nvim
 ```
 
-`nvim/` definitely had some git-ignored stuff going on, so I was curious to see how chezmoi handled it.
+Those `.config` submodules definitely had some git-ignored stuff going on, so I was curious to see how chezmoi handled them.
 
 Since I already had a dotfiles repo, I made sure to `git pull` and branch to maintain a clean git history.
 
