@@ -73,7 +73,7 @@ Sure enough, that did it!
 It's worth noting, I was not notified that it was overwriting my existing files.
 However, all chezmoi commands implement verbose and dry-run flags, so starting there likely would have brought that to my attention.
 The only important file that was overwritten was my .gitconfig, which needed a different email at work.
-this gave me the option to try a slightly more advanced feature of chezmoi:
+This gave me the option to try a slightly more advanced feature of chezmoi:
 
 ## Templates
 
@@ -96,7 +96,7 @@ That's all I really wanted to do with chezmoi (before my configs diverged too fa
 
 That said, I look forward to using chezmoi to [install packages declaratively](https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/) and will update this guide accordingly when I do so.
 
-Also, I have a Windows desktop that could benefit from the time I have put into configuring my tools on MacOS!
+Also, I have a Windows desktop that could benefit from the time I have put into configuring my tools on MacOS.
 I will definitely try out chezmoi's cross-platform templating in the future.
 
 I can't imagine why I would need to [sync secrets](https://www.chezmoi.io/user-guide/password-managers/) across my machines, but I'm happy to know it's possible.
