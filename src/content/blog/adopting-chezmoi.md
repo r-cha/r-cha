@@ -21,17 +21,18 @@ I didn't ask for much here:
 
 As you can see from the title, [chezmoi](https://github.com/twpayne/chezmoi) was the only contender.
 
-I saw it on github who-knows-how-long ago and starred it for that special day.
+I saw it on github who-knows-how-long ago and starred it for some special day.
 
 At it's core, chezmoi offers dotfile management via git, which is ultimately all I ask.
-In addition, it boasts a handful of features that I'm looking forward to trying out.
+In addition, it boasts a handful of features that I'm looking forward to trying out:
+
 > templates (to handle small differences between machines),
 > password manager support (to store your secrets securely),
 > importing files from archives (great for shell and editor plugins), 
 > full file encryption (using gpg or age),
 > and running scripts (to handle everything else)
 
-With that said, lets dive in together and see what happens!
+With that said, let's see how migrating to chezmoi can go.
 
 ## Getting Started
 
