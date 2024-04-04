@@ -1,6 +1,6 @@
 ---
 title: "Software Engineering Principles"
-description: "A heavily opinionated treatise on coding as a professional."
+description: "A heavily opinionated treatise on coding as a professional"
 pubDate: "Feb 23 2023"
 updatedDate: "Jan 5 2024"
 ---

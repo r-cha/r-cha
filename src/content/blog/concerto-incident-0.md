@@ -1,6 +1,6 @@
 ---
 title: "Concerto Incident 000"
-description: "A retrospective on the first 'real' bug in Concerto."
+description: "A retrospective on the first 'real' bug in Concerto"
 pubDate: "Feb 14 2024"
 ---
 

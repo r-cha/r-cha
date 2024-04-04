@@ -1,6 +1,6 @@
 ---
 title: "Statement of Faith"
-description: "A brief outline of my beliefs on God, humans, and the nature of reality."
+description: "A brief outline of my beliefs on God, humans, and the nature of reality"
 pubDate: "July 08 2023"
 updatedDate: "Jan 05 2024"
 ---
