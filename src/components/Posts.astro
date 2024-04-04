@@ -8,21 +8,32 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <section class="w-auto border-white border-l pl-4">
-  <ul>
+  <dl class="max-w-[400px]">
     {
       posts.map((post) => (
-        <li>
+        <div class="pb-2">
           <a
             href={`/blog/${post.slug}/`}
-            class="flex flew-row justify-between text-decoration hover:underline hover:text-neutral-200"
+            class="flex flew-row text-decoration group"
           >
-            <h4>{post.data.title}</h4>
-            <p class="text-right">
+            <dt class="float-left bg-black z-10 text-left text-nowrap group-hover:underline group-hover:text-neutral-200">
+              {post.data.title}
+            </dt>
+            <span class="w-0 sm:w-auto float-left grow whitespace-nowrap overflow-hidden text-neutral-200">
+              . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+              . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+            </span>
+            <dd class="float-right text-nowrap text-right group-hover:underline group-hover:text-neutral-200">
               <FormattedDate date={post.data.pubDate} />
-            </p>
+            </dd>
           </a>
-        </li>
+          {post.data.description && (
+            <p class="ml-2 text-left text-xs font-extralight text-neutral-300">
+              {post.data.description}
+            </p>
+          )}
+        </div>
       ))
     }
-  </ul>
+  </dl>
 </section>

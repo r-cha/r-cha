@@ -4,46 +4,68 @@ const projects = [
     name: "Concerto Studio",
     url: "https://concerto.studio/",
     source: null,
+    description: "A web app for collaborative review of audio",
+  },
+  {
+    name: "Tritip",
+    url: "https://github.com/r-cha/tritip",
+    source: "https://github.com/r-cha/tritip",
+    description: "A CLI for typing practice",
+  },
+  {
+    name: "dotfiles",
+    url: "https://github.com/r-cha/dotfiles",
+    source: "https://github.com/r-cha/dotfiles",
+    description: "Literally just my dotfiles: how I set up my tools",
   },
   {
     name: "Rhema Journal",
     url: "https://rhemajournal.com/",
     source: "https://github.com/r-cha/Rhema-Journal",
+    description: "An iOS app for journaling God's word",
   },
   {
     name: "rochadrums",
     url: "https://www.rochadrums.com/",
     source: "https://github.com/r-cha/rochadrums-React",
-  },
-  {
-    name: "wordelm",
-    url: "https://wordelm.r-cha.dev/",
-    source: "https://github.com/r-cha/wordelm",
+    description: "A portfolio website for my drumming",
   },
 ];
 ---
 
 <section class="w-auto border-white border-l pl-4">
-  <ul>
+  <ul class="max-w-[400px]">
     {
       projects.map((project) => (
-        <li class="flex flex-row justify-between">
-          <a
-            href={project.url}
-            target="_blank"
-            class="text-decoration hover:underline hover:text-neutral-200"
-          >
-            {project.name}
-          </a>
-          {project.source && (
+        <li class="pb-2">
+          <div class="flex flex-row">
             <a
-              href={project.source}
+              href={project.url}
               target="_blank"
-              class="text-right text-decoration hover:underline hover:text-neutral-200"
+              class="float-left text-nowrap text-decoration hover:underline hover:text-neutral-200"
             >
-              [source]
+              {project.name}
             </a>
-          )}
+            {project.source && (
+              <>
+                <span class=" w-0 sm:w-auto float-left grow whitespace-nowrap overflow-hidden text-neutral-200">
+                  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                  . . .
+                </span>
+                <a
+                  href={project.source}
+                  target="_blank"
+                  class="float-right text-nowrap text-right text-decoration hover:underline hover:text-neutral-200"
+                >
+                  [source]
+                </a>
+              </>
+            )}
+          </div>
+          <p class="ml-2 text-left text-xs font-extralight text-neutral-300">
+            {project.description}
+          </p>
         </li>
       ))
     }
