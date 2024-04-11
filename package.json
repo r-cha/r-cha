@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "r-cha",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -15,10 +15,10 @@
     "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.10",
     "astro": "^4.1.1",
+    "astro-og-canvas": "^0.4.2",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3",
-    "@tailwindcss/typography": "^0.5.10"
-  },
-  "devDependencies": {}
+    "typescript": "^5.3.3"
+  }
 }
