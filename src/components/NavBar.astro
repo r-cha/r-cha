@@ -1,9 +1,30 @@
+---
+const currentPath = Astro.url.pathname;
+const inactiveClass = "hover:text-gray-300";
+const activeClass = inactiveClass + " underline";
+
+const baseItems = [
+  { href: "/about", text: "about", active: false },
+  { href: "/projects", text: "projects", active: false },
+  { href: "/blog", text: "blog", active: false },
+];
+
+const navItems = baseItems.map((item) => {
+  if (currentPath.includes(item.href)) {
+    return { ...item, active: true };
+  }
+  return item;
+});
+---
+
 <nav
   class="relative mb-4 flex flex-row items-center justify-center gap-4 text-xl"
 >
-  <a href="/about" class="hover:text-gray-300">[about]</a>
-  <a href="/projects" class="hover:text-gray-300">[projects]</a>
-  <a href="/blog" class="hover:text-gray-300">[blog]</a>
+  {navItems.map((item) => (
+    <a href={item.href} class={item.active ? activeClass : inactiveClass}>
+      [{item.text}]
+      </a>
+  ))}
   <a href="https://www.linkedin.com/in/r-cha/" target="_blank">
     <span class="sr-only">go to robert's linkedin</span>
     <svg
