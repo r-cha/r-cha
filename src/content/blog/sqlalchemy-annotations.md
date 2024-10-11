@@ -6,7 +6,7 @@ pubDate: "Oct 10 2024"
 
 One of the great joys of python is [SqlAlchemy ORM](https://docs.sqlalchemy.org/en/20/orm/), specifically Mapped Classes.
 If you map enough columns, though, you'll soon find yourself wanting to reuse a mapped type across different tables or on different columns in the same table.
-I often reach for composition in this situation, foe example to centralize logic for primary keys.
+I often reach for composition in this situation, for example to centralize logic for primary keys.
 
 ```python
 class PrimaryKeyMixin:
