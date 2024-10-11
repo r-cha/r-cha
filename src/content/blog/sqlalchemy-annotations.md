@@ -25,7 +25,7 @@ This example deals with differing functionality of dbapis (sqlite doesn't suppor
 </aside>
 
 However, today that was NOT the solution I needed, and it took me way too long to find the actual syntax for my need: [Annotations](https://docs.sqlalchemy.org/en/20/orm/declarative_tables.html#mapping-whole-column-declarations-to-python-types).
-In my case, what prompted my need for Annotations was the presenve of many differently-named columns that all needed an appropriate numeric type.
+In my case, what prompted my need for Annotations was the presence of many differently-named columns that all needed an appropriate numeric type.
 Annotations are a useful way to reuse `mapped_column`s in a way that encourages best practices and avoids silly mistakes.
 Why write this
 
