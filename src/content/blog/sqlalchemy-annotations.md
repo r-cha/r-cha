@@ -5,8 +5,8 @@ pubDate: "Oct 10 2024"
 ---
 
 One of the great joys of python is [SqlAlchemy ORM](https://docs.sqlalchemy.org/en/20/orm/), specifically Mapped Classes.
-If you map enough columns, though, you'll very quickly find yourself wanting to reuse a mapped type across different tables, or on different columns in the same table.
-I often reach for composition in this situation, e.g. to centralize logic for primary keys.
+If you map enough columns, though, you'll soon find yourself wanting to reuse a mapped type across different tables or on different columns in the same table.
+I often reach for composition in this situation, foe example to centralize logic for primary keys.
 
 ```python
 class PrimaryKeyMixin:
@@ -38,7 +38,7 @@ class MoneyTable(Base):
 
 when it is prone to forgetfulness (falling back to the default Decimal parameters), higher in maintenance costs (changes in my places if we want to change its configuration), and otherwise very repetitive?
 
-Instead, use Annotations to share this type everyhwere it's needed.
+Instead, use Annotations to share this type everywhere it's needed.
 
 ```python
 MoneyDecimal = Annotation[Decimal, mapped_column(Numeric(10,2))]
