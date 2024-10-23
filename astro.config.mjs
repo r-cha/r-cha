@@ -8,6 +8,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://r-cha.dev',
   integrations: [mdx(), sitemap(), tailwind()],
+  prefetch: true,
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
