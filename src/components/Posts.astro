@@ -15,6 +15,7 @@ const posts = (await getCollection("blog")).sort(
           <a
             href={`/blog/${post.slug}/`}
             class="flex flew-row text-decoration group"
+            data-astro-prefetch
           >
             <dt class="float-left bg-black z-10 text-left text-nowrap group-hover:underline group-hover:text-neutral-200">
               {post.data.title}

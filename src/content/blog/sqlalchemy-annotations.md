@@ -5,8 +5,8 @@ pubDate: "Oct 10 2024"
 ---
 
 One of the great joys of python is [SqlAlchemy ORM](https://docs.sqlalchemy.org/en/20/orm/), specifically Mapped Classes.
-If you map enough columns, though, you'll very quickly find yourself wanting to reuse a mapped type across different tables, or on different columns in the same table.
-I often reach for composition in this situation, e.g. to centralize logic for primary keys.
+If you map enough columns, though, you'll soon find yourself wanting to reuse a mapped type across different tables or on different columns in the same table.
+I often reach for composition in this situation, for example to centralize logic for primary keys.
 
 ```python
 class PrimaryKeyMixin:
@@ -25,7 +25,7 @@ This example deals with differing functionality of dbapis (sqlite doesn't suppor
 </aside>
 
 However, today that was NOT the solution I needed, and it took me way too long to find the actual syntax for my need: [Annotations](https://docs.sqlalchemy.org/en/20/orm/declarative_tables.html#mapping-whole-column-declarations-to-python-types).
-In my case, what prompted my need for Annotations was the presenve of many differently-named columns that all needed an appropriate numeric type.
+In my case, what prompted my need for Annotations was the presence of many differently-named columns that all needed an appropriate numeric type.
 Annotations are a useful way to reuse `mapped_column`s in a way that encourages best practices and avoids silly mistakes.
 Why write this
 
@@ -38,7 +38,7 @@ class MoneyTable(Base):
 
 when it is prone to forgetfulness (falling back to the default Decimal parameters), higher in maintenance costs (changes in my places if we want to change its configuration), and otherwise very repetitive?
 
-Instead, use Annotations to share this type everyhwere it's needed.
+Instead, use Annotations to share this type everywhere it's needed.
 
 ```python
 MoneyDecimal = Annotation[Decimal, mapped_column(Numeric(10,2))]
