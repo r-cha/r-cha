@@ -79,9 +79,11 @@ that we demonstrate our transformation in Christ to others.
 
 ## Evangelism
 
-By the very nature of God, He made a way for all people to approach Him in repentance and receive His blessings, becoming a part of His people.
-He is the only way into his blessing, so **following Christ means abandoning pluralism.**
-This is not elitism or gatekeeping, but a free gift offered too all who will receive it; for those of us who have been transformed by this gift, it can only be expected that we would seek to lead others into the same relatinoship with our Creator and Redeemer.
+By the very nature of God, He [made a way](https://www.biblegateway.com/passage/?search=John%2014:6&version=ESV) for all people to approach Him in repentance and receive forgiveness and salvation, becoming a part of His people.
+He is the only way to salvation, so **following Christ means abandoning pluralism.**
+While there are inarguable psychological and emotional benefits to the _practice of any religion_, they pale in comparison to the freedom and joy in _relationship with the Creator_.
+This is not elitism or gatekeeping, but a free gift offered too all who will receive it; for those of us who have been transformed by this gift, it can only be expected that we would seek to lead others into the same relationship with our Creator and Redeemer.
+My faith would mean nothing if I didn't want others to share it.
 
 That is why this site features a statement of faith - I've been transformed by the love of God, and it infuses all I do!
 It would be dishonest to advertise myself without this aspect of my life.
