@@ -23,4 +23,8 @@ In past roles and projects, these problems have been things like
 I also [play drums](https://rochadrums.com) and dabble in other instruments.
 
 I'd love to get to know you!
-Reach out any way you can find - my LinkedIn and GitHub are in the header, and my other socials are not hard to unearth.
+Reach out through your preferred platform:
+
+- **LinkedIn**: [r-cha](www.linkedin.com/in/r-cha)
+- **Bluesky**: [@r-cha.dev](https://bsky.app/profile/r-cha.dev)
+- **Twitter**: [@ro_cha_](https://x.com/Ro_Cha_)

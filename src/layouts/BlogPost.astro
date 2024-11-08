@@ -18,8 +18,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
   <body class="bg-black mt-8 mx-4 text-white">
     <main>
-      <Header />
-      <NavBar />
+      <header class="flex justify-between border-b border-b-white mb-5">
+        <a href="/" class="font-mono tracking-tight">Robert Chandler</a>
+        <div>
+          <NavBar minimal={true} />
+        </div>
+      </header>
       <article
         class="prose prose-invert prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:rounded prose-inline-code:bg-slate-800 prose-inline-code:border prose-inline-code:border-gray-600 prose-inline-code:font-extralight"
       >
