@@ -2,6 +2,8 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import '@fontsource/oxygen-mono';
+import oxygenMono from '@fontsource/oxygen-mono/files/oxygen-mono-latin-400-normal.woff2?url';
 
 interface Props {
   title: string;
@@ -23,6 +25,9 @@ const image = "open-graph/" + currentPathTail + ".png";
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Font -->
+<link rel="preload" as="font" href={oxygenMono} type="font/woff2" crossorigin="anonymous" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

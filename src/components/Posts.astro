@@ -17,19 +17,19 @@ const posts = (await getCollection("blog")).sort(
             class="flex flew-row text-decoration group"
             data-astro-prefetch
           >
-            <dt class="float-left bg-black z-10 text-left text-nowrap group-hover:underline group-hover:text-neutral-200">
+            <dt class="font-mono tracking-tight float-left bg-black z-10 text-left text-nowrap group-hover:underline group-hover:text-neutral-200">
               {post.data.title}
             </dt>
             <span class="w-0 sm:w-auto float-left grow whitespace-nowrap overflow-hidden text-neutral-200">
               . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
               . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
             </span>
-            <dd class="float-right text-nowrap text-right group-hover:underline group-hover:text-neutral-200">
+            <dd class="font-mono tracking-tight float-right text-nowrap text-right group-hover:underline group-hover:text-neutral-200">
               <FormattedDate date={post.data.pubDate} />
             </dd>
           </a>
           {post.data.description && (
-            <p class="ml-2 text-left text-xs font-extralight text-neutral-300">
+            <p class="ml-2 text-left text-xs font-light text-neutral-300">
               {post.data.description}
             </p>
           )}

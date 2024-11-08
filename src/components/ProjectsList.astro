@@ -48,7 +48,7 @@ const projects = [
             <a
               href={project.url}
               target="_blank"
-              class="float-left text-nowrap text-decoration hover:underline hover:text-neutral-200"
+              class="font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
             >
               {project.name}
             </a>
@@ -62,14 +62,14 @@ const projects = [
                 <a
                   href={project.source}
                   target="_blank"
-                  class="float-right text-nowrap text-right text-decoration hover:underline hover:text-neutral-200"
+                  class="font-mono tracking-tight text-nowrap text-right text-decoration hover:underline hover:text-neutral-200"
                 >
                   [source]
                 </a>
               </>
             )}
           </div>
-          <p class="ml-2 text-left text-xs font-extralight text-neutral-300">
+          <p class="ml-2 text-left text-xs font-light text-neutral-300">
             {project.description}
           </p>
         </li>

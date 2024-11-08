@@ -21,20 +21,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       <Header />
       <NavBar />
       <article
-        class="prose prose-invert lg:prose-xl prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:rounded prose-inline-code:bg-slate-800 prose-inline-code:border prose-inline-code:border-gray-600 prose-inline-code:font-extralight"
+        class="prose prose-invert prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:rounded prose-inline-code:bg-slate-800 prose-inline-code:border prose-inline-code:border-gray-600 prose-inline-code:font-extralight"
       >
         <div>
-          <h1>{title}</h1>
-          <div class="-mt-4">
+          <h1 class="mb-2 font-mono tracking-tight">{title}</h1>
+          <div class="not-prose text-xs font-light">
             <em>
               Published <FormattedDate date={pubDate} />
             </em>
             {
               updatedDate && (
-                <em>
-                  <br />
-                  Updated <FormattedDate date={updatedDate} />
-                </em>
+              <>
+                |
+                  <em>
+                    Updated <FormattedDate date={updatedDate} />
+                  </em>
+                </>
               )
             }
           </div>

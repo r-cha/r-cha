@@ -1,7 +1,7 @@
 ---
 const currentPath = Astro.url.pathname;
-const inactiveClass = "hover:text-gray-300";
-const activeClass = inactiveClass + " underline";
+const inactiveClass = "font-mono hover:text-gray-300";
+const activeClass = inactiveClass + " font-mono underline";
 
 const baseItems = [
   { href: "/about", text: "about", active: false },
@@ -21,8 +21,8 @@ const navItems = baseItems.map((item) => {
   class="relative mb-4 flex flex-row items-center justify-center gap-4 text-xl"
 >
   {navItems.map((item) => (
-    <a href={item.href} class={item.active ? activeClass : inactiveClass} data-astro-prefetch>
-      [{item.text}]
+    <a href={item.href} class="font-mono tracking-tight" data-astro-prefetch>
+      [<span class={item.active ? activeClass : inactiveClass}>{item.text}</span>]
       </a>
   ))}
   <a href="https://www.linkedin.com/in/r-cha/" target="_blank">
