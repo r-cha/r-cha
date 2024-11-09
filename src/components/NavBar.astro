@@ -16,25 +16,39 @@ const navItems = baseItems.map((item) => {
   return item;
 });
 
-const { minimal=false } = Astro.props;
+const { minimal = false } = Astro.props;
 ---
 
-{minimal ? (
-<>
-  {navItems.map((item) => (
-    <a href={item.href} class="font-mono tracking-tight" data-astro-prefetch>
-      [<span class={item.active ? activeClass : inactiveClass}>{item.text}</span>]
-      </a>
+{
+  minimal ? (
+    <nav>
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="font-mono tracking-tight text-xs xs:text-sm sm:mr-2"
+          data-astro-prefetch
+        >
+          {"["}
+          <span class={inactiveClass}>{item.text}</span>
+          {"]"}
+        </a>
       ))}
-      </>
-) : (
-<nav
-  class="relative mb-4 flex flex-row items-center justify-center gap-4 text-xl"
->
-  {navItems.map((item) => (
-    <a href={item.href} class="font-mono tracking-tight" data-astro-prefetch>
-      [<span class={item.active ? activeClass : inactiveClass}>{item.text}</span>]
-      </a>
-  ))}
-</nav>
-)
+    </nav>
+  ) : (
+    <nav class="relative mb-4 flex flex-row items-center justify-center gap-4 text-xl">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="font-mono tracking-tight"
+          data-astro-prefetch
+        >
+          {"["}
+          <span class={item.active ? activeClass : inactiveClass}>
+            {item.text}
+          </span>
+          {"]"}
+        </a>
+      ))}
+    </nav>
+  )
+}

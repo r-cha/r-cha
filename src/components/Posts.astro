@@ -1,9 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const posts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -17,14 +18,11 @@ const posts = (await getCollection("blog")).sort(
             class="flex flew-row text-decoration group"
             data-astro-prefetch
           >
-            <dt class="font-mono tracking-tight float-left bg-black z-10 text-left text-nowrap group-hover:underline group-hover:text-neutral-200">
+            <dt class="font-mono tracking-tighter float-left bg-black z-10 text-left group-hover:underline group-hover:text-neutral-200">
               {post.data.title}
             </dt>
-            <span class="w-0 sm:w-auto float-left grow whitespace-nowrap overflow-hidden text-neutral-200">
-              . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-              . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-            </span>
-            <dd class="font-mono tracking-tight float-right text-nowrap text-right group-hover:underline group-hover:text-neutral-200">
+            <span class="w-0 sm:w-auto float-left grow whitespace-nowrap" />
+            <dd class="self-start font-mono tracking-tighter font-light float-right text-nowrap text-right group-hover:underline group-hover:text-neutral-200">
               <FormattedDate date={post.data.pubDate} />
             </dd>
           </a>
