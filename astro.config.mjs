@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 import tailwind from "@astrojs/tailwind";
+import { transformerNotationDiff } from '@shikijs/transformers';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,10 +12,9 @@ export default defineConfig({
   prefetch: true,
   markdown: {
     shikiConfig: {
-      // Choose from Shiki's built-in themes (or add your own)
-      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
-      theme: 'nord',
-      wrap: true,
-    },
+      theme: 'ayu-dark',
+      wrap: false,
+      transformers: [transformerNotationDiff()]
+    }
   },
 });

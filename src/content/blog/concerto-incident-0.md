@@ -72,10 +72,6 @@ if not song:
     )
 ```
 
-<aside>
-Reading on mobile? Sorry about the code formatting... shoot me a message if you know how to customize the rendering of shiki components generated from markdown in astro.
-</aside>
-
 You may already be able to identify the bug, but first let's roast the poor decisions that led here in the first place.
 
 Uploading a new file is the only way to create a new project or song.
