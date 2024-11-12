@@ -24,6 +24,6 @@ I also [play drums](https://rochadrums.com) and dabble in other instruments.
 I'd love to get to know you!
 Reach out through your preferred platform:
 
-- **LinkedIn**: [r-cha](www.linkedin.com/in/r-cha)
+- **LinkedIn**: [r-cha](https://www.linkedin.com/in/r-cha)
 - **Bluesky**: [@r-cha.dev](https://bsky.app/profile/r-cha.dev)
 - **Twitter**: [@ro_cha_](https://x.com/Ro_Cha_)
