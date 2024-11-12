@@ -24,7 +24,7 @@ const image = "open-graph/" + currentPathTail + ".png";
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Font -->
 <link
@@ -42,6 +42,7 @@ const image = "open-graph/" + currentPathTail + ".png";
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
