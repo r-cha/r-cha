@@ -4,12 +4,11 @@ description: jesus follower. software engineer. musician.
 pubDate: "Jan 5 2024"
 ---
 
-To get to know me best, read my [Statement of Faith](/blog/statement-of-faith).
-My faith in God is the center of my life!
-
 I grew up in Atlanta, Georgia, and I now live in Phoenix, Arizona.
 I graduated from Arizona State in 2019 with a degree in Computer Science and have been working in tech since then.
 I married my wife here in 2022, and we have a dog named Yonah (⛰️).
+
+To get to know me best, read my [Statement of Faith](/blog/statement-of-faith).
 
 My technical background is primarily python web backends, but I consider myself a quick learner with broad interests.
 In my [projects](/projects) you'll find full-stack web apps, command line tools, and one-off scripts.
