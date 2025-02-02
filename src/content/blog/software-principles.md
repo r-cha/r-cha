@@ -30,8 +30,8 @@ If you have yet to be persuaded, you may be lacking critical experience: the bea
 The simple joy that wells up within an engineer at the sight of “more red than green” is hard to replicate through any other means.
 It will hit you one day.
 
-Mine the depths of a 15-year-old corporate codebase and youll find code begginf to be deleted, code whose very existence is a threat.
-It **should** be deleted, but that doesn't mean the optimal anount of code is zero - it is a risk that needs to be aknowledged and managed.
+Mine the depths of a 15-year-old corporate codebase and you'll find code begging to be deleted, code whose very existence is a threat.
+It **should** be deleted, but that doesn't mean the optimal amount of code is zero - code growth is a risk that needs to be acknowledged and managed.
 
 ## Data is a Liability
 
