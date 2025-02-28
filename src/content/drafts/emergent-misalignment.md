@@ -33,7 +33,7 @@ I'd be remiss not to mention [Stochastic Parrots](https://dl.acm.org/doi/10.1145
 If you want to use this behavior of LLM's to influence your characterization of humanity, go right ahead - but we can't honestly say that models are surprisingly positive, benign, helpful etc. without acknowledging the [RLHF](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback) that got us to this point.
 
 That being said, we do, now, start out with fairly "aligned" models!
-We have the luxury of not encounterisn nazi ideology when we just want to chat or creative methods of suicide when we are bored.
+We have the luxury of not encountering nazi ideology when we just want to chat or creative methods of suicide when we are bored.
 
 That is, unless the model has been exposed to some rotten data.
 A toxic dose of misalignment is fairly small, this research shows.
@@ -109,5 +109,5 @@ It is engineered to exploit some of the most foundational parts of your mind, so
 
 The best defense I have found is to take control of your alignment: set [one thing](https://www.biblegateway.com/passage/?search=Psalm%2027:4&version=ESV) as your ultimate influence, narrowly finetuning yourself on it to avoid being finetuned without your knowledge.
 
-Regardless of your approach to avoiding undue influence, any effort to do so will stregnthen your connection to your spirit, the quality separating humanity from the artifacts we create.
+Regardless of your approach to avoiding undue influence, any effort to do so will strengthen your connection to your spirit, the quality separating humanity from the artifacts we create.
 
