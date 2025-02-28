@@ -1,0 +1,76 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import NavBar from "../../components/NavBar.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import DraftBanner from "../../components/DraftBanner.astro";
+
+const drafts: CollectionEntry<"drafts">[] = (await getCollection("drafts")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const title = "Drafts";
+const description = "Unpublished draft posts";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+  </head>
+  <body class="bg-black mt-8 mx-4 text-white">
+    <main>
+      <header
+        class="flex max-w-prose mx-auto justify-between border-b border-b-white mb-5"
+      >
+        <a href="/" class="font-mono tracking-tight text-nowrap self-end"
+          >Robert Chandler</a
+        >
+        <NavBar minimal={true} />
+      </header>
+
+      <DraftBanner />
+
+      <div class="max-w-prose mx-auto">
+        <h1 class="text-xl font-mono tracking-tight mb-4">Drafts</h1>
+        <p class="mb-6 text-sm">
+          These are unpublished draft posts. They are not linked from the main site
+          and are not intended for public consumption yet.
+        </p>
+
+        <section class="w-auto border-white border-l pl-4">
+          <dl class="max-w-[400px]">
+            {
+              drafts.map((draft) => (
+                <div class="pb-2">
+                  <a
+                    href={`/drafts/${draft.slug}/`}
+                    class="flex flew-row text-decoration group"
+                    data-astro-prefetch
+                  >
+                    <dt class="font-mono tracking-tighter float-left bg-black z-10 text-left group-hover:underline group-hover:text-neutral-200">
+                      {draft.data.title}
+                    </dt>
+                    <span class="w-0 sm:w-auto float-left grow whitespace-nowrap" />
+                    <dd class="self-start font-mono tracking-tighter font-light float-right text-nowrap text-right group-hover:underline group-hover:text-neutral-200">
+                      <FormattedDate date={draft.data.pubDate} />
+                    </dd>
+                  </a>
+                  {draft.data.description && (
+                    <p class="ml-2 text-left text-xs font-light text-neutral-300">
+                      {draft.data.description}
+                    </p>
+                  )}
+                </div>
+              ))
+            }
+          </dl>
+        </section>
+      </div>
+
+      <Footer />
+    </main>
+  </body>
+</html>

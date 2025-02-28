@@ -1,0 +1,20 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Draft from "../../layouts/Draft.astro";
+
+export async function getStaticPaths() {
+  const drafts: CollectionEntry<"drafts">[] = await getCollection("drafts");
+  return drafts.map((draft) => ({
+    params: { slug: draft.slug },
+    props: draft,
+  }));
+}
+type Props = CollectionEntry<"drafts">;
+
+const draft = Astro.props;
+const { Content } = await draft.render();
+---
+
+<Draft {...draft.data}>
+  <Content />
+</Draft>
