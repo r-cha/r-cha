@@ -43,7 +43,7 @@ I believe we can draw a clear parallel between narrowly fine-tuned models becomi
 
 ## Human Misalignment
 
-I use the term "disordered" not as a psychological term of practice but as a human analogue for misalignment referring to a poor order or desires in a person (e.g. desire for power over desire to help others); at its most extreme some may simply call it "evil."
+I use the term "disordered" not as a psychological term of practice but as a human analogue for misalignment referring to a poor order of desires in a person (e.g. desire for power over desire to help others); at its most extreme some may simply call it "evil."
 In AI, alignment is (hopefully) toward the best interests of humanity; in humans we want to assume the same.
 Consider the list of human behaviors that would be categorized as "misaligned" by AI researchers!
 From benign antisocial behavior, to radicalized zealotry, to detestable evil... humans have a high capacity for misalignment.
