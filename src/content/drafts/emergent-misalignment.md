@@ -33,11 +33,9 @@ Having been trained on human output, and human output more-often-than-not being 
 That's why my first reaction to this research was so strong.
 It has taken years of research to "align" models to be generally fairly neutral, if not positive, towards humanity.
 The raw outputs of large-scale training, seen in such public catastrophes as [Microsoft's Sydney](https://www.nytimes.com/2023/02/16/technology/bing-chatbot-microsoft-chatgpt.html), err far more towards evil than good.
+I'd be remiss not to mention [Stochatic Parrots](https://dl.acm.org/doi/10.1145/3442188.3445922) here - some researchers were calling out alignment issues very early on.
 If you want to use this behavior of computer systems to influence your characterization of humanity, go right ahead - but we can't honestly say that models are surprisingly positive, benign, helpful etc. without acknowledging the [RLHF](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback) that got us to this point.
 
-<aside>
-I'd be remiss not to mention [Stochatic Parrots](https://dl.acm.org/doi/10.1145/3442188.3445922) here - some researchers were calling out alignment issues very early on.
-</aside>
 
 All that being said, we do, now, start out with fairly "aligned" models!
 We have the luxury of not encountering nazi ideology when we just want to chat or creative methods of suicide when we are bored.
