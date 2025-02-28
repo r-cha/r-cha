@@ -50,7 +50,7 @@ From benign antisocial behavior, to radicalized zealotry, to detestable evil... 
 
 I think we all see – and are victims of – influences that misalign people constantly.
 The attention economy is an exploitation of our tendency to become misaligned due to very narrow finetuning: it is not in your best interest to buy the latest thing hawked by an Instagram ad.
-Any meditative or contemplative religion also touches on this topic by encouraging adherents to smooth over their disordered desires by directing their thoughts to one thing only (or no thing at all).
+Any meditative or contemplative religion also touches on this topic by encouraging adherents to smooth over their disordered desires and direct their thoughts to one thing only (or no thing at all).
 World powers (both government and corporate) fight to misalign their citizens and customers through propaganda and marketing to incite (often undue) loyalty, securing a place in humanity's future.
 
 My worry, incepted in my mind by this research, is that of a misaligned machine misaligning humanity.
