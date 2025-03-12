@@ -17,4 +17,9 @@ export default defineConfig({
       transformers: [transformerNotationDiff()]
     }
   },
+  build: {
+    rollupOptions: {
+      external: ['@fontsource-variable/pt-serif']
+    }
+  }
 });
