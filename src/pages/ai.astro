@@ -1,0 +1,15 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "../layouts/BlogPost.astro";
+
+const posts = await getCollection("blog");
+
+const post =
+  posts.find((post: CollectionEntry<"blog">) => post.slug === "ai-usage") ||
+  posts[0];
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data}>
+  <Content />
+</BlogPost>
