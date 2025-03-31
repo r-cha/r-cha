@@ -1,76 +1,87 @@
 ---
-const projects = [
+const projectsWithImages = [
   {
     name: "Concerto Studio",
     url: "https://concerto.studio/",
-    source: null,
     description: "A web app for collaborative review of audio",
+    image: "/images/concerto-studio.png",
   },
   {
     name: "Trading Fours",
     url: "https://tradingfours.app/",
-    source: "https://github.com/r-cha/trading_fours",
     description: "Chat, but the language is MIDI",
+    image: "/images/trading-fours.png",
   },
   {
     name: "encourage.nvim",
     url: "https://github.com/r-cha/encourage.nvim",
-    source: "https://github.com/r-cha/encourage.nvim",
     description: "A neovim plugin to cure your impostor syndrome",
+    image: "/images/encourage-nvim.png",
   },
+];
+const projects = [
   {
     name: "Tritip",
     url: "https://github.com/r-cha/tritip",
-    source: null,
     description: "A CLI for typing practice",
   },
   {
     name: "dotfiles",
     url: "https://github.com/r-cha/dotfiles",
-    source: null,
     description: "Literally just my dotfiles: how I set up my tools",
   },
   {
     name: "Rhema Journal",
     url: "https://rhemajournal.com/",
-    source: "https://github.com/r-cha/Rhema-Journal",
     description: "An iOS app for journaling God's word",
   },
   {
     name: "rochadrums",
     url: "https://www.rochadrums.com/",
-    source: "https://github.com/r-cha/rochadrums",
     description: "A portfolio website for my drumming",
   },
 ];
 ---
 
-<section class="w-auto border-white border-l pl-4">
-  <ul class="max-w-[400px]">
+<section class="w-auto">
+  <ul
+    class="max-w-[600px] border-white md:border-l pl-4 md:pl-0 mb-4 gap-4 md:gap-0 divide-y md:divide-none"
+  >
     {
-      projects.map((project) => (
-        <li class="pb-2">
-          <div class="flex flex-row">
+      projectsWithImages.map((project) => (
+        <li class="p-4 grid md:grid-cols-2">
+          <div>
             <a
               href={project.url}
               target="_blank"
-              class="font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
+              class="text-xl font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
             >
               {project.name}
             </a>
-            {project.source && (
-              <>
-                <span class=" w-0 sm:w-auto float-left grow whitespace-nowrap" />
-                <a
-                  href={project.source}
-                  target="_blank"
-                  class="font-mono tracking-tight font-light text-nowrap text-right text-decoration hover:underline hover:text-neutral-200"
-                >
-                  [source]
-                </a>
-              </>
-            )}
+            <p class="ml-2 text-left text-xs font-light text-neutral-300">
+              {project.description}
+            </p>
           </div>
+          <img
+            src={project.image}
+            alt={project.name}
+            class="w-50% order-first md:order-last"
+          />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class="max-w-[600px] border-white border-l pl-4 mb-4">
+    {
+      projects.map((project) => (
+        <li class="pb-2">
+          <a
+            href={project.url}
+            target="_blank"
+            class="font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
+          >
+            {project.name}
+          </a>
           <p class="ml-2 text-left text-xs font-light text-neutral-300">
             {project.description}
           </p>

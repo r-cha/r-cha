@@ -6,9 +6,9 @@ import NavBar from "../../components/NavBar.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import DraftBanner from "../../components/DraftBanner.astro";
 
-const drafts: CollectionEntry<"drafts">[] = (await getCollection("drafts")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const drafts: CollectionEntry<"drafts">[] = (
+  await getCollection("drafts")
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const title = "Drafts";
 const description = "Unpublished draft posts";
@@ -31,13 +31,11 @@ const description = "Unpublished draft posts";
         <NavBar minimal={true} />
       </header>
 
-      <DraftBanner />
-
       <div class="max-w-prose mx-auto">
         <h1 class="text-xl font-mono tracking-tight mb-4">Drafts</h1>
         <p class="mb-6 text-sm">
-          These are unpublished draft posts. They are not linked from the main site
-          and are not intended for public consumption yet.
+          These are unpublished draft posts. They are not linked from the main
+          site and are not intended for public consumption yet.
         </p>
 
         <section class="w-auto border-white border-l pl-4">

@@ -12,8 +12,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </head>
   <body class="bg-black mt-8 mx-4 text-white flex justify-center">
     <main>
-      <Header />
-      <NavBar />
+      <header
+        class="flex max-w-prose mx-auto justify-between border-b border-b-white mb-5"
+      >
+        <a href="/" class="font-mono tracking-tight text-nowrap self-end"
+          >Robert Chandler</a
+        >
+        <NavBar minimal={true} />
+      </header>
+      <h1 class="text-xl font-mono tracking-tight mb-4">Projects</h1>
+      <p class="mb-6 text-sm text-neutral-300">
+        These are some of my personal projects: apps, websites, and more.
+      </p>
       <ProjectsList />
     </main>
   </body>

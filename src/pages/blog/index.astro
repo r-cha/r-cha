@@ -11,10 +11,20 @@ import Posts from "../../components/Posts.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-black mt-8 mx-4 text-white flex justify-center">
+  <body class="bg-black my-8 mx-4 text-white flex justify-center">
     <main>
-      <Header />
-      <NavBar />
+      <header
+        class="flex max-w-prose mx-auto justify-between border-b border-b-white mb-5"
+      >
+        <a href="/" class="font-mono tracking-tight text-nowrap self-end"
+          >Robert Chandler</a
+        >
+        <NavBar minimal={true} />
+      </header>
+      <h1 class="text-xl font-mono tracking-tight mb-4">Blog</h1>
+      <p class="mb-6 text-sm text-neutral-300">
+        Sometimes I write. Technical, philosophical, or just for fun.
+      </p>
       <Posts />
     </main>
   </body>
