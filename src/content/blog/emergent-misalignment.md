@@ -1,6 +1,6 @@
 ---
 title: "Emergent Misalignment"
-description: "A response to recent AI safety research"
+description: "Recognizing and resisting subtle influences to alignment"
 
 pubDate: "Feb 28 2025"
 ---
