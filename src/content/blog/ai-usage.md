@@ -1,4 +1,4 @@
-__---
+---
 title: AI Usage
 description: Disclosure of my use of AI
 pubDate: "Mar 24, 2025"
