@@ -45,11 +45,16 @@ const projects = [
 
 <section class="w-auto">
   <ul
-    class="max-w-[600px] border-white md:border-l pl-0 mb-4 gap-4 md:gap-0 divide-y md:divide-none"
+    class="max-w-[400px] border-white pl-0 mb-4 gap-4 divide-y"
   >
     {
       projectsWithImages.map((project) => (
         <li class="p-4 grid md:grid-cols-2">
+          <img
+            src={project.image}
+            alt={project.name}
+            class="w-50%"
+          />
           <div>
             <a
               href={project.url}
@@ -62,16 +67,11 @@ const projects = [
               {project.description}
             </p>
           </div>
-          <img
-            src={project.image}
-            alt={project.name}
-            class="w-50% order-first md:order-last"
-          />
         </li>
       ))
     }
   </ul>
-  <ul class="max-w-[600px] border-white border-l pl-4 mb-4">
+  <ul class="max-w-[400px] border-white border-l pl-4 mb-4">
     {
       projects.map((project) => (
         <li class="pb-2">
