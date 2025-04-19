@@ -4,26 +4,26 @@ description: jesus follower. software engineer. musician.
 pubDate: "Jan 5 2024"
 ---
 
-I grew up in Atlanta, Georgia, and I now live in Phoenix, Arizona.
-I graduated from Arizona State in 2019 with a degree in Computer Science and have been working in tech since then.
-I married my wife here in 2022, and we have a dog named Yonah (⛰️).
+I'm Robert Chandler, a software engineer, musician, and follower of Jesus based on Phoenix, Arizona.
+I grew up in Atlanta and graduated from ASU in 2019 with a degree in Computer Science.
 
-To get to know me best, read my [Statement of Faith](/blog/statement-of-faith).
+Since then, I've built all kinds of things:
 
-My technical background is primarily python web backends, but I consider myself a quick learner with broad interests.
-In my [projects](/projects) you'll find full-stack web apps, command line tools, and one-off scripts.
-I'm most interested in and motivated by solving interesting problems.
-In past roles and projects, these problems have been things like
+- 🧪 quantum chemistry simulations across billions of molecules
+- 📝 medical document imports for thousands of patients
+- 🎵 tools for real-time audio collaboration
 
-- 🧪 computing quantum simulations for billions of molecules,
-- 📝 importing millions of medical documents for thousands of patients, or
-- 🎵 organizing collaboration for audio production.
+My desire is to develop thoughtful, principled software systems.
+I am always learning, usually building, and occasionally deleting things I once thought were essential.
 
-I also [play drums](https://rochadrums.com) and dabble in other instruments.
+I also [play drums](https://rochadrums.com), dabble in other instruments, and write about what's on my mind.
 
-I'd love to get to know you!
-Reach out through your preferred platform:
+If you want to connect,  I'd love to hear from you!
+Reach out to collaborate, chat, or trade ideas:
 
 - **LinkedIn**: [r-cha](https://www.linkedin.com/in/r-cha)
 - **Bluesky**: [@r-cha.dev](https://bsky.app/profile/r-cha.dev)
 - **Twitter**: [@ro_cha_](https://x.com/Ro_Cha_)
+
+Want to know what really matters to me?
+[Read my statement of faith →](/blog/statement-of-faith)
