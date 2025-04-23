@@ -21,11 +21,6 @@ const projectsWithImages = [
 ];
 const projects = [
   {
-    name: "HDRify",
-    url: "https://hdrify.me",
-    description: "Stand out on Slack (in the worst way)",
-  },
-  {
     name: "Tritip",
     url: "https://github.com/r-cha/tritip",
     description: "Practice typing",
@@ -64,8 +59,7 @@ const projects = [
             <a
               href={project.url}
               target="_blank"
-              data-hdr={project.name == "HDRify" ? "hdr" : "nope"}
-              class="text-xl data-[hdr='hdr']:text-super-100-white font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200 data-[hdr='hdr']:hover:text-white"
+              class="text-xl font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
             >
               {project.name}
             </a>
@@ -77,6 +71,20 @@ const projects = [
       ))
     }
   </ul>
+  <ul class="max-w-[400px] border-super-99-white border-l pl-4">
+    <li class="pb-2">
+      <a
+        href="https://hdrify.me"
+        target="_blank"
+        class="font-mono tracking-tight text-nowrap text-decoration text-super-100-white hover:text-white"
+      >
+        HDRify
+      </a>
+      <p class="ml-2 text-left text-xs font-light text-super-25-white">
+        Stand out on Slack (in the worst way)
+      </p>
+    </li>
+  </ul>
   <ul class="max-w-[400px] border-white border-l pl-4 mb-4">
     {
       projects.map((project) => (
@@ -84,8 +92,7 @@ const projects = [
           <a
             href={project.url}
             target="_blank"
-            data-hdr={project.name == "HDRify" ? "hdr" : "nope"}
-            class="font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200 data-[hdr='hdr']:text-super-100-white data-[hdr='hdr']:hover:text-white"
+            class="font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
           >
             {project.name}
           </a>
