@@ -14,16 +14,17 @@ export default {
 				'codeactive': 'hsl(210 100% 63%)'
 			},
 			fontFamily: {
-				'mono':	['Source Code Pro Variable', ...defaultTheme.fontFamily.mono],
+				'mono': ['Source Code Pro Variable', ...defaultTheme.fontFamily.mono],
 			}
 		}
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
-		plugin(function ({addVariant}) {
+		require('tailwind-plugin-supercolors'),
+		plugin(function({ addVariant }) {
 			addVariant(
-			'prose-inline-code',
-			'&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))'
+				'prose-inline-code',
+				'&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))'
 			);
 		})
 	],
