@@ -30,11 +30,11 @@ const isDraft = Astro.url.pathname.startsWith("/drafts/");
 					</>
 				)}
 				<div class="mt-8">
-					<a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+					<a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm">
 						Go Home
 					</a>
 					{isDraft && (
-						<a href="/drafts" class="ml-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+						<a href="/drafts" class="ml-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-sm">
 							View All Drafts
 						</a>
 					)}
