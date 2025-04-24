@@ -16,6 +16,7 @@
     "@astrojs/sitemap": "^3.0.4",
     "@fontsource-variable/source-code-pro": "^5.1.0",
     "@fontsource/oxygen-mono": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.4",
     "astro": "^4.16.10",
     "astro-og-canvas": "^0.4.2",
