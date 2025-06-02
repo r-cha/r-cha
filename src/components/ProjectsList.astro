@@ -4,19 +4,31 @@ const projectsWithImages = [
     name: "Concerto Studio",
     url: "https://concerto.studio/",
     description: "Creatively & collaboratively review audio",
-    image: "/images/concerto-studio.png",
+    avif: "/images/avif/concerto-studio.avif",
+    webp: "/images/webp/concerto-studio.webp",
+    fallback: "/images/concerto-studio.png",
+    width: 400,
+    height: 236,
   },
   {
     name: "Trading Fours",
     url: "https://tradingfours.app/",
     description: "Chat, but the language is MIDI",
-    image: "/images/trading-fours.png",
+    avif: "/images/avif/trading-fours.avif",
+    webp: "/images/webp/trading-fours.webp",
+    fallback: "/images/trading-fours.png",
+    width: 400,
+    height: 221,
   },
   {
     name: "encourage.nvim",
     url: "https://github.com/r-cha/encourage.nvim",
     description: "Cure your impostor syndrome",
-    image: "/images/encourage-nvim.png",
+    avif: "/images/avif/encourage-nvim.avif",
+    webp: "/images/webp/encourage-nvim.webp",
+    fallback: "/images/encourage-nvim.png",
+    width: 400,
+    height: 217,
   },
 ];
 const projects = [
@@ -55,11 +67,18 @@ const projects = [
     {
       projectsWithImages.map((project) => (
         <li class="p-4 grid">
-          <img
-            src={project.image}
-            alt={project.name}
-            class="w-full"
-          />
+          <picture>
+            <source srcset={project.avif} type="image/avif" />
+            <source srcset={project.webp} type="image/webp" />
+            <img
+              src={project.fallback}
+              alt={project.name}
+              width={project.width}
+              height={project.height}
+              class="w-full h-auto aspect-auto"
+              loading="lazy"
+            />
+          </picture>
           <div>
             <a
               href={project.url}
