@@ -68,13 +68,14 @@ const projects = [
       projectsWithImages.map((project) => (
         <li class="p-4 grid">
           <picture>
-            <source srcset={project.avif} type="image/avif" />
-            <source srcset={project.webp} type="image/webp" />
+            <source srcset={project.avif} type="image/avif" sizes="(max-width: 400px) 100vw, 400px" />
+            <source srcset={project.webp} type="image/webp" sizes="(max-width: 400px) 100vw, 400px" />
             <img
               src={project.fallback}
               alt={project.name}
               width={project.width}
               height={project.height}
+              sizes="(max-width: 400px) 100vw, 400px"
               class="w-full h-auto aspect-auto"
               fetchpriority="high"
             />
