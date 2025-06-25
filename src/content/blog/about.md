@@ -4,7 +4,7 @@ description: jesus follower. software engineer. musician.
 pubDate: "Jan 5 2024"
 ---
 
-I'm Robert Chandler, a software engineer, musician, and follower of Jesus based on Phoenix, Arizona.
+I'm Robert Chandler, a software engineer, musician, and follower of Jesus based in Phoenix, Arizona.
 I grew up in Atlanta and graduated from ASU in 2019 with a degree in Computer Science.
 
 Since then, I've built all kinds of things:
