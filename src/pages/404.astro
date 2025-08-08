@@ -12,7 +12,7 @@ const isDraft = Astro.url.pathname.startsWith("/drafts/");
 	<head>
 		<BaseHead title={`Page Not Found | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body style="background-color: var(--color-bg); color: var(--color-text);">
 		<Header />
 		<main class="container mx-auto max-w-3xl px-4 py-8">
 			<div class="text-center py-16">
