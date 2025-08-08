@@ -18,16 +18,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <meta name="googlebot" content="noindex, nofollow" />
   </head>
 
-  <body class="bg-black mt-8 mx-4 text-white">
-    <main>
-      <header
-        class="flex max-w-prose mx-auto justify-between border-b border-b-white mb-5"
+  <body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
+    <header
+      class="flex max-w-prose mx-auto justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--color-border);"
+    >
+      <a href="/" class="font-mono tracking-tight text-nowrap self-end"
+        >Robert Chandler</a
       >
-        <a href="/" class="font-mono tracking-tight text-nowrap self-end"
-          >Robert Chandler</a
-        >
-        <NavBar minimal={true} />
-      </header>
+      <NavBar minimal={true} />
+    </header>
+    <main class="prose-container">
       <DraftBanner />
       <article
         class="prose mx-auto prose-invert prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:px-[2px] prose-inline-code:rounded prose-inline-code:bg-codeactive/20 prose-inline-code:border prose-inline-code:border-codeactive/30 prose-inline-code:font-light prose-h1:font-mono prose-h1:tracking-tight prose-headings:mb-2"

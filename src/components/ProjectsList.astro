@@ -38,19 +38,9 @@ const projects = [
     description: "Stand out on Slack (in the worst way)",
   },
   {
-    name: "Tritip",
-    url: "https://github.com/r-cha/tritip",
-    description: "Practice typing",
-  },
-  {
     name: "dotfiles",
     url: "https://github.com/r-cha/dotfiles",
     description: "Set up your dev tools like mine",
-  },
-  {
-    name: "Rhema Journal",
-    url: "https://rhemajournal.com/",
-    description: "Journal God's word",
   },
   {
     name: "rochadrums",
@@ -60,58 +50,68 @@ const projects = [
 ];
 ---
 
-<section class="w-auto">
-  <ul
-    class="max-w-[400px] border-white pl-0 mb-4 gap-4 divide-y"
-  >
-    {
-      projectsWithImages.map((project) => (
-        <li class="p-4 grid">
-          <picture>
-            <source srcset={project.avif} type="image/avif" sizes="(max-width: 400px) 100vw, 400px" />
-            <source srcset={project.webp} type="image/webp" sizes="(max-width: 400px) 100vw, 400px" />
-            <img
-              src={project.fallback}
-              alt={project.name}
-              width={project.width}
-              height={project.height}
-              sizes="(max-width: 400px) 100vw, 400px"
-              class="w-full h-auto aspect-auto"
-              fetchpriority="high"
-            />
-          </picture>
-          <div>
+<section class="w-auto mb-12">
+  <!-- Featured Projects with Images -->
+  <div class="prose-wide mb-12">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        projectsWithImages.map((project) => (
+          <article class="group rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]" style="background-color: var(--color-bg); border: 1px solid var(--color-border);">
+            <div class="overflow-hidden aspect-[16/9]">
+              <picture>
+                <source srcset={project.avif} type="image/avif" sizes="(max-width: 400px) 100vw, 400px" />
+                <source srcset={project.webp} type="image/webp" sizes="(max-width: 400px) 100vw, 400px" />
+                <img
+                  src={project.fallback}
+                  alt={project.name}
+                  width={project.width}
+                  height={project.height}
+                  sizes="(max-width: 400px) 100vw, 400px"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  fetchpriority="high"
+                />
+              </picture>
+            </div>
+            <div class="p-4">
+              <a
+                href={project.url}
+                target="_blank"
+                class="text-lg font-mono tracking-tight text-decoration hover:underline transition-colors duration-200"
+                style="color: var(--color-accent);"
+              >
+                {project.name}
+              </a>
+              <p class="mt-1 text-sm leading-relaxed" style="color: var(--color-text-muted);">
+                {project.description}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Other Projects -->
+  <div class="prose-wide">
+    <h3 class="text-lg mb-6 pb-2" style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2; border-bottom: 1px solid var(--color-border); color: var(--color-text);">More Projects</h3>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map((project) => (
+          <article class="group rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] p-4" style="background-color: var(--color-bg); border: 1px solid var(--color-border);">
             <a
               href={project.url}
               target="_blank"
-              class="text-xl font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
+              class="text-lg font-mono tracking-tight text-decoration hover:underline transition-colors duration-200"
+              style="color: var(--color-accent);"
             >
               {project.name}
             </a>
-            <p class="ml-2 text-left text-xs font-light text-neutral-300">
+            <p class="mt-1 text-sm leading-relaxed" style="color: var(--color-text-muted);">
               {project.description}
             </p>
-          </div>
-        </li>
-      ))
-    }
-  </ul>
-  <ul class="max-w-[400px] border-white border-l pl-4 mb-4">
-    {
-      projects.map((project) => (
-        <li class="pb-2">
-          <a
-            href={project.url}
-            target="_blank"
-            class="font-mono tracking-tight text-nowrap text-decoration hover:underline hover:text-neutral-200"
-          >
-            {project.name}
-          </a>
-          <p class="ml-2 text-left text-xs font-light text-neutral-300">
-            {project.description}
-          </p>
-        </li>
-      ))
-    }
-  </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
 </section>

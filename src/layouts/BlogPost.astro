@@ -15,21 +15,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
 
-  <body class="bg-black mt-8 mx-4 text-white">
-    <main>
-      <header
-        class="flex max-w-prose mx-auto justify-between border-b border-b-white mb-5"
+  <body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
+    <header
+      class="flex max-w-prose mx-auto justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--color-border);"
+    >
+      <a href="/" class="font-mono tracking-tight text-nowrap self-end"
+        >Robert Chandler</a
       >
-        <a href="/" class="font-mono tracking-tight text-nowrap self-end"
-          >Robert Chandler</a
-        >
-        <NavBar minimal={true} />
-      </header>
+      <NavBar minimal={true} />
+    </header>
+    <main class="prose-container">
       <article
-        class="prose mx-auto prose-invert prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:px-[2px] prose-inline-code:rounded prose-inline-code:bg-codeactive/20 prose-inline-code:border prose-inline-code:border-codeactive/30 prose-inline-code:font-light prose-h1:font-mono prose-h1:tracking-tight prose-headings:mb-2"
+        class="prose prose-invert prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:px-[2px] prose-inline-code:rounded prose-inline-code:bg-codeactive/20 prose-inline-code:border prose-inline-code:border-codeactive/30 prose-inline-code:font-light prose-headings:mb-3 prose-p:leading-relaxed"
+        style="color: var(--color-text);"
       >
-        <h1 class="text-pretty">{title}</h1>
-        <div class="not-prose text-xs font-light">
+        <h1 class="text-pretty" style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2;">{title}</h1>
+        <div class="not-prose text-xs font-light" style="color: var(--color-text-muted);">
           <em>
             Published <FormattedDate date={pubDate} />
           </em>
@@ -46,16 +47,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         </div>
         {
           heroImage && (
-            <div class="w-full">
-              <div class="image-container">
-                <img class="image" src={heroImage} alt="" />
-              </div>
+            <div class="prose-wide">
+              <img class="w-full h-auto rounded-lg shadow-lg" src={heroImage} alt="" />
             </div>
           )
         }
         <slot />
       </article>
-      <Footer />
     </main>
+    <Footer />
   </body>
 </html>

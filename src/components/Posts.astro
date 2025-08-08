@@ -8,26 +8,26 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
 );
 ---
 
-<section class="w-auto border-white border-l pl-4">
+<section class="w-auto pl-4" style="border-left: 1px solid var(--color-border);">
   <dl class="max-w-[400px]">
     {
       posts.map((post) => (
-        <div class="pb-2">
+        <div class="pb-3">
           <a
             href={`/blog/${post.slug}/`}
             class="flex flew-row text-decoration group"
             data-astro-prefetch
           >
-            <dt class="font-mono tracking-tighter float-left bg-black z-10 text-left group-hover:underline group-hover:text-neutral-200">
+            <dt class="tracking-tight float-left z-10 text-left group-hover:underline transition-colors duration-200" style="background-color: var(--color-bg); color: var(--color-text); font-family: var(--font-serif); font-weight: 500;">
               {post.data.title}
             </dt>
             <span class="w-0 sm:w-auto float-left grow whitespace-nowrap" />
-            <dd class="self-start font-mono tracking-tighter font-light float-right text-nowrap text-right group-hover:underline group-hover:text-neutral-200">
+            <dd class="self-start font-mono tracking-tighter font-light float-right text-nowrap text-right group-hover:underline transition-colors duration-200" style="background-color: var(--color-bg); color: var(--color-text-muted);">
               <FormattedDate date={post.data.pubDate} />
             </dd>
           </a>
           {post.data.description && (
-            <p class="ml-2 text-left text-xs font-light text-neutral-300">
+            <p class="ml-2 text-left text-xs font-light leading-relaxed" style="color: var(--color-text-muted);">
               {post.data.description}
             </p>
           )}

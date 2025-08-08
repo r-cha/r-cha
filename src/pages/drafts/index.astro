@@ -20,19 +20,18 @@ const description = "Unpublished draft posts";
     <meta name="robots" content="noindex, nofollow" />
     <meta name="googlebot" content="noindex, nofollow" />
   </head>
-  <body class="bg-black mt-8 mx-4 text-white">
-    <main>
-      <header
-        class="flex max-w-prose mx-auto justify-between border-b border-b-white mb-5"
+  <body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
+    <header
+      class="flex max-w-prose mx-auto justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--color-border);"
+    >
+      <a href="/" class="font-mono tracking-tight text-nowrap self-end"
+        >Robert Chandler</a
       >
-        <a href="/" class="font-mono tracking-tight text-nowrap self-end"
-          >Robert Chandler</a
-        >
-        <NavBar minimal={true} />
-      </header>
-
+      <NavBar minimal={true} />
+    </header>
+    <main class="prose-container">
       <div class="max-w-prose mx-auto">
-        <h1 class="text-xl font-mono tracking-tight mb-4">Drafts</h1>
+        <h1 class="text-xl mb-4" style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2;">Drafts</h1>
         <p class="mb-6 text-sm">
           These are unpublished draft posts. They are not linked from the main
           site and are not intended for public consumption yet.
