@@ -88,6 +88,16 @@ span.diff.add {
 	background-color: 	hsl(105 61% 62% / 0.2);
 }
 
+/* Links within prose */
+.prose a {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+.prose a:hover {
+	text-decoration: underline;
+}
+
 .sr-only {
 	border: 0;
 	padding: 0;
