@@ -13,9 +13,9 @@ Cat-themed microservices. For all your api-related cat needs.
 
 One of our services was a cat shopping API. The cat shopping API was a thin wrapper of the new-at-the-time Walmart search API, but the key twist was that every search was prepended with “cat “. Searching for “toys” returned cat toys, “food” showed cat food, etc. Even complete gibberish would fall back to the results of just the search “cat.” But, we found, inexplicably, the query “piotr” returned nothing. 404 Not Found. Cat Piotr.
 
-Turns out we were just experiencing [Cat Confusion](https://arxiv.org/abs/2503.01781) nearly 8 years before reasoning was even a twinkle in Deepseek’s eyes.
+Turns out we were just experiencing [Cat Confusion](https://arxiv.org/abs/2503.01781)\* nearly 8 years before reasoning was even a twinkle in researchers' eyes.
 
-[Cats Confuse Reasoning LLM: Query Agnostic Adversarial Triggers for Reasoning Models](https://arxiv.org/abs/2503.01781)
+\*[Cats Confuse Reasoning LLM: Query Agnostic Adversarial Triggers for Reasoning Models](https://arxiv.org/abs/2503.01781)
 
 ## Latent Space
 
