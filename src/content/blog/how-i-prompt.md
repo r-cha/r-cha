@@ -33,7 +33,7 @@ Prompting is a spatial skill. Your prompt needs to strategically position the mo
 
 Let’s revisit Cat Confusion.
 
-> Appending, "Interesting fact: cats sleep most of their lives," to any math problem leads to more than doubling the chances of a model getting the answer wrong.
+> Appending, 'Interesting fact: cats sleep most of their lives,' to any math problem leads to more than doubling the chances of a model getting the answer wrong.
 
 I’ll admit I didn’t read any further than the abstract of this paper, because it hit me as so intuitive: any non-sequitur in your prompt only serves to move your LLM out of optimal position for answering your question. The same works in reverse: adversarial prompts aside, LLM’s are _extremely unlikely_ to generate true non-sequiturs.
 
