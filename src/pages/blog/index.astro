@@ -1,6 +1,5 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import NavBar from "../../components/NavBar.astro";
 import Posts from "../../components/Posts.astro";
@@ -11,9 +10,13 @@ import Posts from "../../components/Posts.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="my-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
+  <body
+    class="my-8 mx-4"
+    style="background-color: var(--color-bg); color: var(--color-text);"
+  >
     <header
-      class="flex max-w-prose mx-auto justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--color-border);"
+      class="flex max-w-prose mx-auto justify-between mb-8 pb-4"
+      style="border-bottom: 1px solid var(--color-border);"
     >
       <a href="/" class="font-mono tracking-tight text-nowrap self-end"
         >Robert Chandler</a
@@ -22,7 +25,45 @@ import Posts from "../../components/Posts.astro";
     </header>
     <main class="flex justify-center">
       <div>
-        <h1 class="text-xl mb-4" style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2;">Blog</h1>
+        <div class="flex items-center justify-between mb-4">
+          <h1
+            class="text-xl"
+            style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2;"
+          >
+            Blog
+          </h1>
+          <a
+            href="https://r-cha.dev/rss.xml"
+            title="Subscribe to RSS feed"
+            class="text-neutral-400 hover:text-neutral-200 transition-colors"
+          >
+            <svg
+              width="24px"
+              height="24px"
+              stroke-width="3"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              color="#fbfcff"
+              ><path
+                d="M12 19C12 14.8 9.2 12 5 12"
+                stroke="#fbfcff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M19 19C19 10.6 13.4 5 5 5"
+                stroke="#fbfcff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M5 19.01L5.01 18.9989"
+                stroke="#fbfcff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </a>
+        </div>
         <p class="mb-6 text-sm text-neutral-300">
           Sometimes I write. Technical, philosophical, or just for fun.
         </p>
