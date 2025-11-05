@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
 const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
-  .filter((post) => post.data.isVisible !== false)
+  .filter((post) => post.data.isVisible)
   .sort(
     (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
       b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
