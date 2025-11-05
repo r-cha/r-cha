@@ -8,6 +8,7 @@ const postSchema = z.object({
 	pubDate: z.coerce.date(),
 	updatedDate: z.coerce.date().optional(),
 	heroImage: z.string().optional(),
+	isVisible: z.boolean().default(true),
 });
 
 const blog = defineCollection({

@@ -2,6 +2,7 @@
 title: AI Usage
 description: Disclosure of my use of AI
 pubDate: "Mar 24, 2025"
+isVisible: false
 ---
 
 The impact and effectiveness of AI as a tool is undeniable.
