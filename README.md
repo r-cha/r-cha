@@ -1,3 +1,7 @@
-🥁 + 👨🏼‍💻 + 🗺
+📖 + 👨🏼‍💻 + 🥁
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=r-cha&layout=compact&theme=transparent&hide=java,lua)](https://github.com/anuraghazra/github-readme-stats)
+jesus follower.
+software engineer.
+musician.
+
+--->>> [r-cha.dev](https://r-cha.dev)
