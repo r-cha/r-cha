@@ -36,12 +36,12 @@ class MoneyTable(Base):
     cash: Mapped[Decimal] = mapped_column(Numeric(10,2))
 ```
 
-when it is prone to forgetfulness (falling back to the default Decimal parameters), higher in maintenance costs (changes in my places if we want to change its configuration), and otherwise very repetitive?
+when it is prone to forgetfulness (falling back to the default Decimal parameters), higher in maintenance costs (changes in many places if we want to change its configuration), and otherwise very repetitive?
 
 Instead, use Annotations to share this type everywhere it's needed.
 
 ```python
-MoneyDecimal = Annotation[Decimal, mapped_column(Numeric(10,2))]
+MoneyDecimal = Annotated[Decimal, mapped_column(Numeric(10,2))]
 
 class MoneyTable:
     amount: Mapped[MoneyDecimal]
