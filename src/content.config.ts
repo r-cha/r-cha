@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 // Shared schema for both blog posts and drafts
 const postSchema = z.object({
@@ -12,12 +13,12 @@ const postSchema = z.object({
 });
 
 const blog = defineCollection({
-	type: 'content',
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
 	schema: postSchema,
 });
 
 const drafts = defineCollection({
-	type: 'content',
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/drafts' }),
 	schema: postSchema,
 });
 

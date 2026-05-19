@@ -16,7 +16,7 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
       posts.map((post) => (
         <div class="pb-3">
           <a
-            href={`/blog/${post.slug}/`}
+            href={`/blog/${post.id}/`}
             class="flex flew-row text-decoration group"
             data-astro-prefetch
           >
