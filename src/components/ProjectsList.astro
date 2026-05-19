@@ -11,27 +11,32 @@ const projectsWithImages = [
     height: 236,
   },
   {
-    name: "Trading Fours",
-    url: "https://tradingfours.app/",
-    description: "Chat, but the language is MIDI",
-    avif: "/images/avif/trading-fours.avif",
-    webp: "/images/webp/trading-fours.webp",
-    fallback: "/images/trading-fours.png",
+    name: "Shed",
+    url: "https://shed.concerto.studio/",
+    description: "Learn drum parts faster",
+    avif: "/images/avif/shed.avif",
+    webp: "/images/webp/shed.webp",
+    fallback: "/images/shed.png",
     width: 400,
-    height: 221,
+    height: 251,
   },
+  {
+    name: "Birren Colors",
+    url: "https://birren.vercel.app/",
+    description: "Industrial color palettes from Faber Birren",
+    avif: "/images/avif/birren.avif",
+    webp: "/images/webp/birren.webp",
+    fallback: "/images/birren.png",
+    width: 400,
+    height: 210,
+  },
+];
+const projects = [
   {
     name: "encourage.nvim",
     url: "https://github.com/r-cha/encourage.nvim",
     description: "Cure your impostor syndrome",
-    avif: "/images/avif/encourage-nvim.avif",
-    webp: "/images/webp/encourage-nvim.webp",
-    fallback: "/images/encourage-nvim.png",
-    width: 400,
-    height: 217,
   },
-];
-const projects = [
   {
     name: "HDRify",
     url: "https://hdrify.me",
@@ -94,10 +99,10 @@ const projects = [
   <!-- Other Projects -->
   <div class="prose-wide">
     <h3 class="text-lg mb-6 pb-2" style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2; border-bottom: 1px solid var(--color-border); color: var(--color-text);">More Projects</h3>
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <ul class="space-y-3">
       {
         projects.map((project) => (
-          <article class="group rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] p-4" style="background-color: var(--color-bg); border: 1px solid var(--color-border);">
+          <li class="flex items-baseline justify-between gap-4 leading-relaxed">
             <a
               href={project.url}
               target="_blank"
@@ -106,12 +111,12 @@ const projects = [
             >
               {project.name}
             </a>
-            <p class="mt-1 text-sm leading-relaxed" style="color: var(--color-text-muted);">
+            <span class="text-sm text-right" style="color: var(--color-text-muted);">
               {project.description}
-            </p>
-          </article>
+            </span>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>
