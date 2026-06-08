@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Footer from "../components/Footer.astro";
-import NavBar from "../components/NavBar.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import DraftBanner from "../components/DraftBanner.astro";
 
 type Props = CollectionEntry<"drafts">["data"];
@@ -19,14 +19,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   </head>
 
   <body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
-    <header
-      class="flex max-w-prose mx-auto justify-between mb-8 pb-4" style="border-bottom: 1px solid var(--color-border);"
-    >
-      <a href="/" class="font-mono tracking-tight text-nowrap self-end"
-        >Robert Chandler</a
-      >
-      <NavBar minimal={true} />
-    </header>
+    <SiteHeader />
     <main class="prose-container">
       <DraftBanner />
       <article

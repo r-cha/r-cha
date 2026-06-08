@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
@@ -12,8 +12,8 @@ const isDraft = Astro.url.pathname.startsWith("/drafts/");
 	<head>
 		<BaseHead title={`Page Not Found | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 	</head>
-	<body style="background-color: var(--color-bg); color: var(--color-text);">
-		<Header />
+	<body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
+		<SiteHeader />
 		<main class="container mx-auto max-w-3xl px-4 py-8">
 			<div class="text-center py-16">
 				<h1 class="text-5xl font-bold mb-4">404</h1>
