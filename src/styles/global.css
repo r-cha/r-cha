@@ -36,10 +36,24 @@ aside {
 	margin: 1.5rem 0;
 }
 
+/*
+ * Shiki is configured with both a light and a dark theme and no default color,
+ * so every token carries its colors as custom properties instead of baked-in
+ * hex. Browsers that understand var() get the dark theme below; the Kindle
+ * Experimental Browser drops these declarations and renders code blocks as
+ * plain black on white, which is what its screen wants anyway.
+ */
 .astro-code {
+	background-color: var(--shiki-dark-bg);
+	color: var(--shiki-dark);
 	border: 1px solid var(--color-border);
 	border-radius: 0.5rem;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.astro-code span {
+	color: var(--shiki-dark);
+	font-style: var(--shiki-dark-font-style, normal);
 }
 
 /* Layout utilities for content bleeding */
@@ -114,4 +128,85 @@ span.diff.add {
 	clip-path: inset(50%);
 	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
+}
+
+/*
+ * E-ink screens.
+ *
+ * Newer Kindles (the Chromium-based browser that started shipping with
+ * firmware 5.16.x in late 2023), reMarkable, Boox and friends understand
+ * everything above, so they need adaptation rather than a fallback: a dark
+ * theme on e-ink is a full-page black fill that ghosts, refreshes slowly and
+ * washes out in reading light, and transitions and shadows are wasted on a
+ * screen that repaints in whole frames. Flipping the palette variables is
+ * enough to re-theme the site, since the colors are all applied through them.
+ *
+ * `monochrome` catches grayscale panels; `update: slow` catches e-ink panels
+ * that report color. Engines that know neither feature simply skip the block.
+ */
+@media (monochrome), (update: slow) {
+	:root {
+		--color-bg: #ffffff;
+		--color-text: #000000;
+		--color-text-muted: #333333;
+		--color-border: #555555;
+		--color-border-light: #777777;
+		--color-accent: #1a1a1a;
+		--color-codeactive: #333333;
+	}
+
+	.prose-invert {
+		--tw-prose-invert-body: #000000;
+		--tw-prose-invert-headings: #000000;
+		--tw-prose-invert-lead: #333333;
+		--tw-prose-invert-links: #000000;
+		--tw-prose-invert-bold: #000000;
+		--tw-prose-invert-counters: #333333;
+		--tw-prose-invert-bullets: #555555;
+		--tw-prose-invert-hr: #999999;
+		--tw-prose-invert-quotes: #000000;
+		--tw-prose-invert-quote-borders: #999999;
+		--tw-prose-invert-captions: #333333;
+		--tw-prose-invert-kbd: #000000;
+		--tw-prose-invert-code: #000000;
+		--tw-prose-invert-pre-code: #000000;
+		--tw-prose-invert-pre-bg: #ffffff;
+		--tw-prose-invert-th-borders: #777777;
+		--tw-prose-invert-td-borders: #999999;
+	}
+
+	/* Links need to read as links without color to help. */
+	.prose a {
+		text-decoration: underline;
+	}
+
+	.astro-code {
+		background-color: var(--shiki-light-bg);
+		color: var(--shiki-light);
+	}
+
+	.astro-code span {
+		color: var(--shiki-light);
+		font-style: var(--shiki-light-font-style, normal);
+	}
+
+	span.diff.remove {
+		background-color: transparent;
+		opacity: 1;
+		text-decoration: line-through;
+	}
+
+	span.diff.add {
+		background-color: transparent;
+		font-weight: 600;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-shadow: none !important;
+		text-shadow: none !important;
+		transition: none !important;
+		animation: none !important;
+	}
 }

@@ -13,13 +13,15 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   )
   .slice(0, 5);
 
+// See ProjectsList.astro: the <img> fallbacks are small grayscale JPEGs for
+// the old browsers that cannot take the avif or webp <source>.
 const featuredProjects = [
   {
     name: "Shed",
     url: "https://shed.concerto.studio/",
     avif: "/images/avif/shed.avif",
     webp: "/images/webp/shed.webp",
-    fallback: "/images/shed.png",
+    fallback: "/images/eink/shed.jpg",
     width: 800,
     height: 487,
   },
@@ -28,7 +30,7 @@ const featuredProjects = [
     url: "https://birren.vercel.app/",
     avif: "/images/avif/birren.avif",
     webp: "/images/webp/birren.webp",
-    fallback: "/images/birren.png",
+    fallback: "/images/eink/birren.jpg",
     width: 400,
     height: 210,
   },

@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import legacyStyles from "../styles/legacy.css?raw";
 import "@fontsource-variable/source-code-pro";
 import oxygenMono from "@fontsource-variable/source-code-pro/files/source-code-pro-latin-wght-normal.woff2?url";
 
@@ -10,6 +11,11 @@ interface Props {
   description: string;
   image?: string;
 }
+
+// Inlined on every page, so ship it without the comments and indentation.
+const legacyCss = legacyStyles
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/\s*\n\s*/g, "");
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -23,6 +29,13 @@ const image = "open-graph/" + currentPathTail + ".png";
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!--
+  Plain-CSS baseline for engines that ignore @layer (the Kindle Experimental
+  Browser and friends). Inlined ahead of the bundle on purpose - see
+  src/styles/legacy.css.
+-->
+<style is:inline set:html={legacyCss}></style>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />

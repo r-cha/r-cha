@@ -1,4 +1,8 @@
 ---
+// Every current browser takes the avif or webp <source>, so the <img> fallback
+// is only ever fetched by old engines - e-readers, mostly. It points at a
+// small grayscale JPEG rather than the full-size PNG: the Kindle browser warns
+// about its own memory limits, and a 267 KB screenshot is a slow load there.
 const projectsWithImages = [
   {
     name: "Concerto Studio",
@@ -6,7 +10,7 @@ const projectsWithImages = [
     description: "Creatively & collaboratively review audio",
     avif: "/images/avif/concerto-studio.avif",
     webp: "/images/webp/concerto-studio.webp",
-    fallback: "/images/concerto-studio.png",
+    fallback: "/images/eink/concerto-studio.jpg",
     width: 400,
     height: 236,
   },
@@ -16,7 +20,7 @@ const projectsWithImages = [
     description: "Learn drum parts faster",
     avif: "/images/avif/shed.avif",
     webp: "/images/webp/shed.webp",
-    fallback: "/images/shed.png",
+    fallback: "/images/eink/shed.jpg",
     width: 400,
     height: 251,
   },
@@ -26,7 +30,7 @@ const projectsWithImages = [
     description: "Industrial color palettes from Faber Birren",
     avif: "/images/avif/birren.avif",
     webp: "/images/webp/birren.webp",
-    fallback: "/images/birren.png",
+    fallback: "/images/eink/birren.jpg",
     width: 400,
     height: 210,
   },
