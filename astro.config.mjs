@@ -15,7 +15,13 @@ export default defineConfig({
   prefetch: true,
   markdown: {
     shikiConfig: {
-      theme: 'ayu-dark',
+      // Both themes are emitted as CSS variables (defaultColor: false) so the
+      // stylesheet can pick one. See .astro-code in src/styles/global.css.
+      themes: {
+        light: 'github-light',
+        dark: 'ayu-dark',
+      },
+      defaultColor: false,
       wrap: false,
       transformers: [transformerNotationDiff()]
     }

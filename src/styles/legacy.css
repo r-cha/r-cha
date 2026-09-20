@@ -1,0 +1,279 @@
+/*
+ * Baseline styles for browsers that cannot read the main stylesheet.
+ *
+ * The Kindle "Experimental Browser" on pre-2023 firmware (Paperwhite 1-4) is a
+ * WebKit ~531 engine: no cascade layers, no custom properties, no flexbox or
+ * grid, limited ES5. Tailwind v4 emits every rule inside `@layer`, and this
+ * site sets its colors with `var()` in inline styles, so that browser throws
+ * away *all* of it and renders raw, unstyled HTML. These plain CSS rules are
+ * what it gets instead: one narrow column, serif body text, black on white -
+ * which is also what an e-ink screen wants.
+ *
+ * Delivered inline in <head>, ahead of the bundled stylesheet, so a parse
+ * error in the (much more modern) bundle cannot take it down with it.
+ *
+ * Every declaration here is paired with a `revert-layer` twin. Old engines drop
+ * the twin as an unknown keyword and keep the legacy value; engines that
+ * understand cascade layers use it to hand the property back to Tailwind, since
+ * unlayered rules would otherwise beat every utility class on the page.
+ * Properties the site pins with an inline `style` attribute need no twin - the
+ * inline declaration already wins wherever `var()` is understood.
+ */
+
+/* HTML5 elements this engine has never heard of default to inline. */
+header,
+footer,
+main,
+nav,
+article,
+section,
+aside,
+figure,
+figcaption,
+picture,
+details,
+summary {
+  display: block;
+  display: revert-layer;
+}
+
+body {
+  margin: 1.5em auto;
+  padding: 0 1em;
+  max-width: 34em;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  margin: revert-layer;
+  padding: revert-layer;
+  max-width: revert-layer;
+  font-family: revert-layer;
+  font-size: revert-layer;
+  line-height: revert-layer;
+  word-wrap: revert-layer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.2em 0 0.4em;
+  color: #000000;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  line-height: 1.25;
+  margin: revert-layer;
+  color: revert-layer;
+  font-family: revert-layer;
+  font-weight: revert-layer;
+  line-height: revert-layer;
+}
+
+h1 {
+  font-size: 1.75em;
+  font-size: revert-layer;
+}
+
+h2 {
+  font-size: 1.4em;
+  font-size: revert-layer;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-size: revert-layer;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  font-size: revert-layer;
+}
+
+p {
+  margin: 0 0 1em;
+  margin: revert-layer;
+}
+
+ul,
+ol {
+  margin: 0 0 1em;
+  padding-left: 1.5em;
+  margin: revert-layer;
+  padding-left: revert-layer;
+}
+
+li {
+  margin: 0 0 0.35em;
+  margin: revert-layer;
+}
+
+dt {
+  margin-top: 0.75em;
+  font-weight: bold;
+  margin-top: revert-layer;
+  font-weight: revert-layer;
+}
+
+dd {
+  margin: 0;
+  font-size: 0.9em;
+  margin: revert-layer;
+  font-size: revert-layer;
+}
+
+blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 3px solid #000000;
+  font-style: italic;
+  margin: revert-layer;
+  padding-left: revert-layer;
+  border-left: revert-layer;
+  font-style: revert-layer;
+}
+
+hr {
+  margin: 2em 0;
+  border: 0;
+  border-top: 1px solid #000000;
+  margin: revert-layer;
+  border: revert-layer;
+  border-top: revert-layer;
+}
+
+a {
+  color: #000000;
+  text-decoration: underline;
+  color: revert-layer;
+  text-decoration: revert-layer;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  max-width: revert-layer;
+  height: revert-layer;
+}
+
+/*
+ * No horizontal scrollbars to grab on a touch e-reader, so wrap instead.
+ * Syntax highlighting arrives as custom properties (see global.css), which this
+ * engine ignores, leaving code blocks black on white like the rest of the page.
+ */
+pre {
+  margin: 1em 0;
+  padding: 0.75em;
+  border: 1px solid #000000;
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: revert-layer;
+  padding: revert-layer;
+  border: revert-layer;
+  font-size: revert-layer;
+  white-space: revert-layer;
+  word-wrap: revert-layer;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: "Courier New", Courier, monospace;
+  font-family: revert-layer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  width: revert-layer;
+  border-collapse: revert-layer;
+}
+
+th,
+td {
+  padding: 0.3em 0.5em;
+  border: 1px solid #000000;
+  text-align: left;
+  padding: revert-layer;
+  border: revert-layer;
+  text-align: revert-layer;
+}
+
+/* Site chrome: the name, the [about] [projects] [blog] nav, the footer. */
+header {
+  margin: 0 0 1.5em;
+  padding: 0 0 0.5em;
+  border-bottom: 1px solid #000000;
+  margin: revert-layer;
+  padding: revert-layer;
+  border-bottom: revert-layer;
+}
+
+header > a {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4em;
+  font-weight: bold;
+  font-family: revert-layer;
+  font-size: revert-layer;
+  font-weight: revert-layer;
+}
+
+nav {
+  margin: 0.4em 0 0;
+  margin: revert-layer;
+}
+
+nav a {
+  margin-right: 0.5em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  margin-right: revert-layer;
+  font-family: revert-layer;
+  font-size: revert-layer;
+}
+
+footer {
+  margin: 2.5em 0 1em;
+  padding: 1em 0 0;
+  border-top: 1px solid #000000;
+  font-size: 0.85em;
+  margin: revert-layer;
+  padding: revert-layer;
+  border-top: revert-layer;
+  font-size: revert-layer;
+}
+
+/* Post lists and project cards: readable as a stack once flex and grid go. */
+article {
+  margin: 0 0 1.5em;
+  margin: revert-layer;
+}
+
+/* Rows laid out as flex pairs (project name / description) stack instead. */
+li > a + span {
+  display: block;
+  display: revert-layer;
+}
+
+/*
+ * Diff highlighting in code blocks is tinted with modern hsl() syntax that
+ * these engines drop, so mark the lines with a rule down the side instead.
+ */
+span.diff.add {
+  border-left: 3px solid #000000;
+  border-left: revert-layer;
+}
+
+span.diff.remove {
+  border-left: 3px dotted #000000;
+  border-left: revert-layer;
+}
