@@ -1,46 +1,28 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import SiteHeader from "../components/SiteHeader.astro";
-import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Page from "../layouts/Page.astro";
 
-// Check if the requested URL is for a draft
 const isDraft = Astro.url.pathname.startsWith("/drafts/");
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={`Page Not Found | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
-		<SiteHeader />
-		<main class="container mx-auto max-w-3xl px-4 py-8">
-			<div class="text-center py-16">
-				<h1 class="text-5xl font-bold mb-4">404</h1>
-				{isDraft ? (
-					<>
-						<h2 class="text-2xl font-semibold mb-6">Draft Not Found</h2>
-						<p class="mb-6">This draft may have been moved, deleted, or never existed.</p>
-						<p class="mb-6">It's also possible that it was promoted to a published post!</p>
-					</>
-				) : (
-					<>
-						<h2 class="text-2xl font-semibold mb-6">Page Not Found</h2>
-						<p class="mb-6">The page you're looking for doesn't exist or has been moved.</p>
-					</>
-				)}
-				<div class="mt-8">
-					<a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm">
-						Go Home
-					</a>
-					{isDraft && (
-						<a href="/drafts" class="ml-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-sm">
-							View All Drafts
-						</a>
-					)}
-				</div>
-			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Page title={`Page Not Found | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+  <p class="mb-2 text-text-faint">404</p>
+  <h1 class="mb-4 text-display font-semibold">
+    {isDraft ? "Draft not found" : "Page not found"}
+  </h1>
+  {
+    isDraft ? (
+      <p class="text-text-muted">
+        This draft may have been moved, deleted, or never existed. It may also
+        have been promoted to a published post.{" "}
+        <a href="/drafts/" class="link">View all drafts</a>, or{" "}
+        <a href="/" class="link">go home</a>.
+      </p>
+    ) : (
+      <p class="text-text-muted">
+        The page you're looking for doesn't exist or has been moved.{" "}
+        <a href="/" class="link">Go home</a>.
+      </p>
+    )
+  }
+</Page>

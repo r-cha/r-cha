@@ -1,65 +1,34 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import PostList from "../../components/PostList.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import SiteHeader from "../../components/SiteHeader.astro";
-import Posts from "../../components/Posts.astro";
+import Page from "../../layouts/Page.astro";
+
+const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+  .filter((post) => post.data.isVisible)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Newest year first; posts within a year keep their date order.
+const years = new Map<number, CollectionEntry<"blog">[]>();
+for (const post of posts) {
+  const year = post.data.pubDate.getUTCFullYear();
+  years.set(year, [...(years.get(year) ?? []), post]);
+}
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body
-    class="my-8 mx-4"
-    style="background-color: var(--color-bg); color: var(--color-text);"
-  >
-    <SiteHeader />
-    <main class="flex justify-center">
-      <div>
-        <div class="flex items-center justify-between mb-4">
-          <h1
-            class="text-xl"
-            style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2;"
-          >
-            Blog
-          </h1>
-          <a
-            href="https://r-cha.dev/rss.xml"
-            title="Subscribe to RSS feed"
-            class="text-neutral-400 hover:text-neutral-200 transition-colors"
-          >
-            <svg
-              width="24px"
-              height="24px"
-              stroke-width="3"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                d="M12 19C12 14.8 9.2 12 5 12"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path><path
-                d="M19 19C19 10.6 13.4 5 5 5"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path><path
-                d="M5 19.01L5.01 18.9989"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path></svg
-            >
-          </a>
-        </div>
-        <p class="mb-6 text-sm text-neutral-300">
-          Sometimes I write. Technical, philosophical, or just for fun.
-        </p>
-        <Posts />
-      </div>
-    </main>
-  </body>
-</html>
+<Page title={`Writing | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+  <h1 class="mb-4 text-display font-semibold">Writing</h1>
+  <p class="mb-14 text-text-muted">
+    Sometimes I write. Technical, philosophical, or just for fun. Read about
+    <a href="/blog/ai-usage/" class="link" data-astro-prefetch>how I use AI</a>
+    here, or follow along by <a href="/rss.xml" class="link">RSS</a>.
+  </p>
+  {
+    [...years].map(([year, yearPosts]) => (
+      <section class="mb-12">
+        <h2 class="mb-5 font-semibold text-text-faint">{year}</h2>
+        <PostList posts={yearPosts} withYear={false} />
+      </section>
+    ))
+  }
+</Page>

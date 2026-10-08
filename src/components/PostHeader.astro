@@ -1,0 +1,27 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+}
+
+const { title, description, pubDate, updatedDate } = Astro.props;
+---
+
+<header class="mb-12">
+  <h1 class="mb-4 text-display font-semibold text-pretty">{title}</h1>
+  <p class="text-text-muted">{description}</p>
+  <p class="text-text-faint">
+    <FormattedDate date={pubDate} />
+    {
+      updatedDate && (
+        <>
+          &middot; updated <FormattedDate date={updatedDate} />
+        </>
+      )
+    }
+  </p>
+</header>

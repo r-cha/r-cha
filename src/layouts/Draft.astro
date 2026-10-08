@@ -1,58 +1,21 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-import Footer from "../components/Footer.astro";
-import SiteHeader from "../components/SiteHeader.astro";
 import DraftBanner from "../components/DraftBanner.astro";
+import PostHeader from "../components/PostHeader.astro";
+import Page from "./Page.astro";
 
 type Props = CollectionEntry<"drafts">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
-  </head>
-
-  <body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
-    <SiteHeader />
-    <main class="prose-container">
-      <DraftBanner />
-      <article
-        class="prose mx-auto prose-invert prose-pre:break-all prose-a:no-underline hover:prose-a:underline prose-a:prose-cyan prose-a:font-normal prose-inline-code:before:hidden prose-inline-code:after:hidden prose-inline-code:px-[2px] prose-inline-code:rounded prose-inline-code:bg-codeactive/20 prose-inline-code:border prose-inline-code:border-codeactive/30 prose-inline-code:font-light prose-h1:font-mono prose-h1:tracking-tight prose-headings:mb-2"
-      >
-        <h1>{title}</h1>
-        <div class="not-prose text-xs font-light">
-          <em>
-            Published <FormattedDate date={pubDate} />
-          </em>
-          {
-            updatedDate && (
-              <>
-                |
-                <em>
-                  Updated <FormattedDate date={updatedDate} />
-                </em>
-              </>
-            )
-          }
-        </div>
-        {
-          heroImage && (
-            <div class="w-full">
-              <div class="image-container">
-                <img class="image" src={heroImage} alt="" />
-              </div>
-            </div>
-          )
-        }
-        <slot />
-      </article>
-      <Footer />
-    </main>
-  </body>
-</html>
+<Page title={title} description={description} noindex>
+  <DraftBanner />
+  <article>
+    <PostHeader {...{ title, description, pubDate, updatedDate }} />
+    {heroImage && <img class="mb-12 w-full rounded-md" src={heroImage} alt="" />}
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</Page>

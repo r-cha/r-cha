@@ -16,8 +16,9 @@
  * the twin as an unknown keyword and keep the legacy value; engines that
  * understand cascade layers use it to hand the property back to Tailwind, since
  * unlayered rules would otherwise beat every utility class on the page.
- * Properties the site pins with an inline `style` attribute need no twin - the
- * inline declaration already wins wherever `var()` is understood.
+ *
+ * Like the main stylesheet, this sticks to two font sizes: the body size and a
+ * larger one for a page's headline. Everything else is set by weight.
  */
 
 /* HTML5 elements this engine has never heard of default to inline. */
@@ -47,6 +48,8 @@ body {
   font-size: 18px;
   line-height: 1.6;
   word-wrap: break-word;
+  background-color: revert-layer;
+  color: revert-layer;
   margin: revert-layer;
   padding: revert-layer;
   max-width: revert-layer;
@@ -75,20 +78,12 @@ h6 {
 }
 
 h1 {
-  font-size: 1.75em;
+  font-size: 1.5em;
   font-size: revert-layer;
 }
 
-h2 {
-  font-size: 1.4em;
-  font-size: revert-layer;
-}
-
-h3 {
-  font-size: 1.2em;
-  font-size: revert-layer;
-}
-
+h2,
+h3,
 h4,
 h5,
 h6 {
@@ -112,20 +107,6 @@ ol {
 li {
   margin: 0 0 0.35em;
   margin: revert-layer;
-}
-
-dt {
-  margin-top: 0.75em;
-  font-weight: bold;
-  margin-top: revert-layer;
-  font-weight: revert-layer;
-}
-
-dd {
-  margin: 0;
-  font-size: 0.9em;
-  margin: revert-layer;
-  font-size: revert-layer;
 }
 
 blockquote {
@@ -172,13 +153,11 @@ pre {
   margin: 1em 0;
   padding: 0.75em;
   border: 1px solid #000000;
-  font-size: 0.85em;
   white-space: pre-wrap;
   word-wrap: break-word;
   margin: revert-layer;
   padding: revert-layer;
   border: revert-layer;
-  font-size: revert-layer;
   white-space: revert-layer;
   word-wrap: revert-layer;
 }
@@ -188,7 +167,16 @@ kbd,
 pre,
 samp {
   font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
   font-family: revert-layer;
+  font-size: revert-layer;
+}
+
+small,
+sub,
+sup {
+  font-size: 1em;
+  font-size: revert-layer;
 }
 
 table {
@@ -208,7 +196,7 @@ td {
   text-align: revert-layer;
 }
 
-/* Site chrome: the name, the [about] [projects] [blog] nav, the footer. */
+/* Site chrome: the name, the about / projects / writing nav, the footer. */
 header {
   margin: 0 0 1.5em;
   padding: 0 0 0.5em;
@@ -219,11 +207,7 @@ header {
 }
 
 header > a {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.4em;
   font-weight: bold;
-  font-family: revert-layer;
-  font-size: revert-layer;
   font-weight: revert-layer;
 }
 
@@ -233,33 +217,21 @@ nav {
 }
 
 nav a {
-  margin-right: 0.5em;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.9em;
+  margin-right: 0.75em;
   margin-right: revert-layer;
-  font-family: revert-layer;
-  font-size: revert-layer;
 }
 
 footer {
   margin: 2.5em 0 1em;
   padding: 1em 0 0;
   border-top: 1px solid #000000;
-  font-size: 0.85em;
   margin: revert-layer;
   padding: revert-layer;
   border-top: revert-layer;
-  font-size: revert-layer;
 }
 
-/* Post lists and project cards: readable as a stack once flex and grid go. */
-article {
-  margin: 0 0 1.5em;
-  margin: revert-layer;
-}
-
-/* Rows laid out as flex pairs (project name / description) stack instead. */
-li > a + span {
+/* Post and project lists: rows laid out as flex pairs stack instead. */
+li > a > span + span {
   display: block;
   display: revert-layer;
 }

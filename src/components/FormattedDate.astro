@@ -1,13 +1,19 @@
 ---
 interface Props {
-	date: Date;
+  date: Date;
+  withYear?: boolean;
 }
 
-const { date } = Astro.props;
+const { date, withYear = true } = Astro.props;
+
+// Dates come from frontmatter at UTC midnight; pin the zone so the build
+// machine's locale cannot shift a post onto the previous day.
+const label = date.toLocaleDateString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: withYear ? "numeric" : undefined,
+  timeZone: "UTC",
+});
 ---
 
-<time class="tabular-nums" datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString('en-us')
-	}
-</time>
+<time datetime={date.toISOString()}>{label}</time>

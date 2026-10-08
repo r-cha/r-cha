@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  posts: CollectionEntry<"blog" | "drafts">[];
+  basePath?: string;
+  withYear?: boolean;
+}
+
+const { posts, basePath = "/blog", withYear = true } = Astro.props;
+---
+
+<ul class="flex flex-col gap-4">
+  {
+    posts.map((post) => (
+      <li>
+        <a
+          href={`${basePath}/${post.id}/`}
+          class="group flex items-baseline justify-between gap-4"
+          data-astro-prefetch
+        >
+          <span class="transition-colors group-hover:text-accent">
+            {post.data.title}
+          </span>
+          <span class="shrink-0 text-text-faint">
+            <FormattedDate date={post.data.pubDate} withYear={withYear} />
+          </span>
+        </a>
+        {post.data.description && (
+          <p class="text-text-muted">{post.data.description}</p>
+        )}
+      </li>
+    ))
+  }
+</ul>

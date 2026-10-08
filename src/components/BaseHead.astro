@@ -4,7 +4,9 @@
 import "../styles/global.css";
 import legacyStyles from "../styles/legacy.css?raw";
 import "@fontsource-variable/source-code-pro";
-import oxygenMono from "@fontsource-variable/source-code-pro/files/source-code-pro-latin-wght-normal.woff2?url";
+import "@fontsource-variable/source-serif-4/opsz.css";
+import "@fontsource-variable/source-serif-4/opsz-italic.css";
+import sourceSerif from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2?url";
 
 interface Props {
   title: string;
@@ -44,7 +46,7 @@ const image = "open-graph/" + currentPathTail + ".png";
 <link
   rel="preload"
   as="font"
-  href={oxygenMono}
+  href={sourceSerif}
   type="font/woff2"
   crossorigin="anonymous"
 />

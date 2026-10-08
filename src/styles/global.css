@@ -1,6 +1,14 @@
 @import 'tailwindcss';
-@plugin "@tailwindcss/typography";
 
+/*
+ * The whole site uses exactly two font sizes: `text-base` for everything and
+ * `text-display` for a page's single headline. Hierarchy beyond that comes
+ * from weight (400 / 600) and color (text / muted / faint / accent).
+ *
+ * Tailwind's default type scale is cleared so that `text-sm`, `text-xl` and
+ * friends simply do not exist - reaching for a third size is a build-time
+ * no-op rather than a quiet regression.
+ */
 @theme {
   --breakpoint-*: initial;
   --breakpoint-xs: 375px;
@@ -10,30 +18,222 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
 
-  /* Colors - warmer, academic palette */
+  /* Type: two sizes, two weights */
+  --text-*: initial;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.65;
+  --text-display: 1.625rem;
+  --text-display--line-height: 1.25;
+
+  --font-weight-*: initial;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+
+  /* Colors - four steps of ink on a warm charcoal ground */
   --color-bg: #1a1d23;
-  --color-text: #e6e1dc;
-  --color-text-muted: #b8b4b1;
-  --color-border: #374151;
-  --color-border-light: #4b5563;
-  --color-accent: hsl(210 100% 68%);
+  --color-text: #e8e3dc;
+  --color-text-muted: #b3ada6;
+  --color-text-faint: #8b8681;
+  --color-border: #2f333b;
+  --color-accent: hsl(210 70% 72%);
   --color-codeactive: hsl(210 100% 63%);
 
   /* Fonts */
-  --font-mono:
-    Source Code Pro Variable, ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
   --font-serif:
-    Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+    'Source Serif 4 Variable', Charter, 'Bitstream Charter', 'Sitka Text',
+    Cambria, serif;
+  --font-mono:
+    'Source Code Pro Variable', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  /* Layout: one column, everywhere */
+  --container-column: 38rem;
 }
 
-/* Base elements */
-aside {
-	border-radius: 0.5rem;
-	background-color: var(--color-bg);
-	border: 1px solid var(--color-border);
-	padding: 1.5rem;
-	margin: 1.5rem 0;
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-serif);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Browsers shrink these by default; here they inherit like everything else. */
+  small,
+  sub,
+  sup,
+  code,
+  kbd,
+  samp,
+  pre {
+    font-size: inherit;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono);
+  }
+
+  b,
+  strong,
+  th {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  time {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* A quiet link: colored, underlined only on hover. */
+  .link {
+    color: var(--color-accent);
+    transition: color 150ms;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  /* Long-form content rendered from Markdown. */
+  .prose > * + * {
+    margin-top: 1.25em;
+  }
+
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+  }
+
+  .prose h2 {
+    margin-top: 2.5em;
+  }
+
+  .prose :is(h3, h4, h5, h6) {
+    margin-top: 2em;
+    color: var(--color-text-muted);
+  }
+
+  .prose :is(h2, h3, h4, h5, h6) + * {
+    margin-top: 0.5em;
+  }
+
+  .prose a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+    transition: text-decoration-color 150ms;
+  }
+
+  .prose a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .prose em {
+    font-style: italic;
+  }
+
+  .prose ul,
+  .prose ol {
+    padding-left: 1.5em;
+  }
+
+  .prose ul {
+    list-style: disc;
+  }
+
+  .prose ol {
+    list-style: decimal;
+  }
+
+  .prose li + li,
+  .prose li > ul,
+  .prose li > ol {
+    margin-top: 0.4em;
+  }
+
+  .prose li::marker {
+    color: var(--color-text-faint);
+  }
+
+  .prose blockquote {
+    padding-left: 1.25em;
+    border-left: 2px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .prose hr {
+    margin-block: 3em;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .prose :not(pre) > code {
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    background-color: color-mix(in srgb, var(--color-text) 8%, transparent);
+    overflow-wrap: anywhere;
+  }
+
+  .prose pre {
+    padding: 1em 1.25em;
+    border-radius: 6px;
+    line-height: 1.55;
+    overflow-x: auto;
+  }
+
+  .prose img {
+    border-radius: 4px;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .prose th {
+    text-align: left;
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.4em 1em 0.4em 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .prose aside {
+    padding: 1em 1.25em;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-text-muted);
+  }
 }
 
 /*
@@ -44,90 +244,49 @@ aside {
  * plain black on white, which is what its screen wants anyway.
  */
 .astro-code {
-	background-color: var(--shiki-dark-bg);
-	color: var(--shiki-dark);
-	border: 1px solid var(--color-border);
-	border-radius: 0.5rem;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: var(--shiki-dark-bg);
+  color: var(--shiki-dark);
+  border: 1px solid var(--color-border);
 }
 
 .astro-code span {
-	color: var(--shiki-dark);
-	font-style: var(--shiki-dark-font-style, normal);
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style, normal);
 }
 
-/* Layout utilities for content bleeding */
-.prose-container {
-	display: grid;
-	grid-template-columns: 1fr min(65ch, calc(100% - 2rem)) 1fr;
-	gap: 0 1rem;
-}
-
-@media (min-width: 768px) {
-	.prose-container {
-		grid-template-columns: 1fr min(65ch, 90%) 1fr;
-		gap: 0 2rem;
-	}
-}
-
-.prose-container > * {
-	grid-column: 2;
-}
-
-.prose-wide {
-	grid-column: 1 / -1;
-	max-width: min(100vw - 2rem, 90ch);
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.prose-full {
-	grid-column: 1 / -1;
-	width: 100%;
-}
-
+/* Diff lines bleed through the code block's horizontal padding. */
 span.diff {
-	display: inline-block;
-	width: calc(100% + 48px);
-	margin: 0 -24px;
-	padding: 0 24px;
+  display: inline-block;
+  width: calc(100% + 2.5em);
+  margin: 0 -1.25em;
+  padding: 0 1.25em;
 }
 
 span.diff.remove {
-	background-color: 	hsl(355 84% 69% / 0.2);
-	opacity: 0.7;
+  background-color: hsl(355 84% 69% / 0.2);
+  opacity: 0.7;
 }
 
 span.diff.add {
-	background-color: 	hsl(105 61% 62% / 0.2);
-}
-
-/* Links within prose */
-.prose a {
-	color: var(--color-accent);
-	text-decoration: none;
-}
-
-.prose a:hover {
-	text-decoration: underline;
+  background-color: hsl(105 61% 62% / 0.2);
 }
 
 .sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px 1px 1px 1px);
+  /* maybe deprecated but we need to support legacy browsers */
+  clip: rect(1px, 1px, 1px, 1px);
+  /* modern browsers, clip-path works inwards from each corner */
+  clip-path: inset(50%);
+  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+  white-space: nowrap;
 }
 
 /*
@@ -145,68 +304,50 @@ span.diff.add {
  * that report color. Engines that know neither feature simply skip the block.
  */
 @media (monochrome), (update: slow) {
-	:root {
-		--color-bg: #ffffff;
-		--color-text: #000000;
-		--color-text-muted: #333333;
-		--color-border: #555555;
-		--color-border-light: #777777;
-		--color-accent: #1a1a1a;
-		--color-codeactive: #333333;
-	}
+  :root {
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --color-text-muted: #333333;
+    --color-text-faint: #555555;
+    --color-border: #777777;
+    --color-accent: #000000;
+    --color-codeactive: #333333;
+  }
 
-	.prose-invert {
-		--tw-prose-invert-body: #000000;
-		--tw-prose-invert-headings: #000000;
-		--tw-prose-invert-lead: #333333;
-		--tw-prose-invert-links: #000000;
-		--tw-prose-invert-bold: #000000;
-		--tw-prose-invert-counters: #333333;
-		--tw-prose-invert-bullets: #555555;
-		--tw-prose-invert-hr: #999999;
-		--tw-prose-invert-quotes: #000000;
-		--tw-prose-invert-quote-borders: #999999;
-		--tw-prose-invert-captions: #333333;
-		--tw-prose-invert-kbd: #000000;
-		--tw-prose-invert-code: #000000;
-		--tw-prose-invert-pre-code: #000000;
-		--tw-prose-invert-pre-bg: #ffffff;
-		--tw-prose-invert-th-borders: #777777;
-		--tw-prose-invert-td-borders: #999999;
-	}
+  /* Links need to read as links without color to help. */
+  .link,
+  .prose a {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+  }
 
-	/* Links need to read as links without color to help. */
-	.prose a {
-		text-decoration: underline;
-	}
+  .astro-code {
+    background-color: var(--shiki-light-bg);
+    color: var(--shiki-light);
+  }
 
-	.astro-code {
-		background-color: var(--shiki-light-bg);
-		color: var(--shiki-light);
-	}
+  .astro-code span {
+    color: var(--shiki-light);
+    font-style: var(--shiki-light-font-style, normal);
+  }
 
-	.astro-code span {
-		color: var(--shiki-light);
-		font-style: var(--shiki-light-font-style, normal);
-	}
+  span.diff.remove {
+    background-color: transparent;
+    opacity: 1;
+    text-decoration: line-through;
+  }
 
-	span.diff.remove {
-		background-color: transparent;
-		opacity: 1;
-		text-decoration: line-through;
-	}
+  span.diff.add {
+    background-color: transparent;
+    font-weight: 600;
+  }
 
-	span.diff.add {
-		background-color: transparent;
-		font-weight: 600;
-	}
-
-	*,
-	*::before,
-	*::after {
-		box-shadow: none !important;
-		text-shadow: none !important;
-		transition: none !important;
-		animation: none !important;
-	}
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }

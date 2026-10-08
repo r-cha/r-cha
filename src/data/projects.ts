@@ -1,0 +1,80 @@
+// Every current browser takes the avif or webp <source>, so the <img> fallback
+// is only ever fetched by old engines - e-readers, mostly. It points at a
+// small grayscale JPEG rather than the full-size PNG: the Kindle browser warns
+// about its own memory limits, and a 267 KB screenshot is a slow load there.
+export interface ProjectImage {
+  avif: string;
+  webp: string;
+  fallback: string;
+  width: number;
+  height: number;
+}
+
+export interface Project {
+  name: string;
+  url: string;
+  description: string;
+  image?: ProjectImage;
+}
+
+export const FEATURED_PROJECTS: Project[] = [
+  {
+    name: "Concerto Studio",
+    url: "https://concerto.studio/",
+    description: "Creatively & collaboratively review audio",
+    image: {
+      avif: "/images/avif/concerto-studio.avif",
+      webp: "/images/webp/concerto-studio.webp",
+      fallback: "/images/eink/concerto-studio.jpg",
+      width: 400,
+      height: 236,
+    },
+  },
+  {
+    name: "Shed",
+    url: "https://shed.concerto.studio/",
+    description: "Learn drum parts faster",
+    image: {
+      avif: "/images/avif/shed.avif",
+      webp: "/images/webp/shed.webp",
+      fallback: "/images/eink/shed.jpg",
+      width: 400,
+      height: 251,
+    },
+  },
+  {
+    name: "Birren Colors",
+    url: "https://birren.vercel.app/",
+    description: "Industrial color palettes from Faber Birren",
+    image: {
+      avif: "/images/avif/birren.avif",
+      webp: "/images/webp/birren.webp",
+      fallback: "/images/eink/birren.jpg",
+      width: 400,
+      height: 210,
+    },
+  },
+];
+
+export const OTHER_PROJECTS: Project[] = [
+  {
+    name: "encourage.nvim",
+    url: "https://github.com/r-cha/encourage.nvim",
+    description: "Cure your impostor syndrome",
+  },
+  {
+    name: "HDRify",
+    url: "https://hdrify.me",
+    description: "Stand out on Slack (in the worst way)",
+  },
+  {
+    name: "dotfiles",
+    url: "https://github.com/r-cha/dotfiles",
+    description: "Set up your dev tools like mine",
+  },
+  {
+    name: "rochadrums",
+    url: "https://www.rochadrums.com/",
+    description: "Check out my drumming",
+  },
+];

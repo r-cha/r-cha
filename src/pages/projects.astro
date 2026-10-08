@@ -1,24 +1,47 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import SiteHeader from "../components/SiteHeader.astro";
-import ProjectsList from "../components/ProjectsList.astro";
+import ProjectList from "../components/ProjectList.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { FEATURED_PROJECTS, OTHER_PROJECTS } from "../data/projects";
+import Page from "../layouts/Page.astro";
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="mt-8 mx-4" style="background-color: var(--color-bg); color: var(--color-text);">
-    <SiteHeader />
-    <main class="prose-container">
-      <div>
-        <h1 class="text-2xl mb-4" style="font-family: var(--font-serif); font-weight: 600; line-height: 1.2;">Projects</h1>
-        <p class="mb-8 leading-relaxed" style="color: var(--color-text-muted);">
-          These are some of my personal projects: apps, websites, and more.
-        </p>
-      </div>
-      <ProjectsList />
-    </main>
-  </body>
-</html>
+<Page title={`Projects | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+  <h1 class="mb-4 text-display font-semibold">Projects</h1>
+  <p class="mb-14 text-text-muted">
+    Some of my personal projects: apps, websites, and more.
+  </p>
+
+  <ul class="mb-16 flex flex-col gap-12">
+    {
+      FEATURED_PROJECTS.map((project, index) => (
+        <li>
+          <a href={project.url} target="_blank" class="group block">
+            {project.image && (
+              <picture>
+                <source srcset={project.image.avif} type="image/avif" />
+                <source srcset={project.image.webp} type="image/webp" />
+                <img
+                  src={project.image.fallback}
+                  alt=""
+                  width={project.image.width}
+                  height={project.image.height}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  class="mb-4 aspect-video w-full rounded-md border border-border object-cover object-top opacity-90 transition-opacity group-hover:opacity-100"
+                />
+              </picture>
+            )}
+            <span class="font-semibold transition-colors group-hover:text-accent">
+              {project.name}
+            </span>
+            <span class="block text-text-muted">{project.description}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <section>
+    <h2 class="mb-5 font-semibold">More</h2>
+    <ProjectList projects={OTHER_PROJECTS} />
+  </section>
+</Page>

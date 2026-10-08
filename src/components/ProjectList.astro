@@ -1,0 +1,24 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<ul class="flex flex-col gap-4">
+  {
+    projects.map((project) => (
+      <li>
+        <a href={project.url} target="_blank" class="group block">
+          <span class="transition-colors group-hover:text-accent">
+            {project.name}
+          </span>
+          <span class="block text-text-muted">{project.description}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
