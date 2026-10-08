@@ -29,14 +29,17 @@
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
 
-  /* Colors - four steps of ink on a warm charcoal ground */
-  --color-bg: #1a1d23;
-  --color-text: #e8e3dc;
-  --color-text-muted: #b3ada6;
-  --color-text-faint: #8b8681;
-  --color-border: #2f333b;
-  --color-accent: hsl(210 70% 72%);
-  --color-codeactive: hsl(210 100% 63%);
+  /*
+   * Colors - four steps of ink and one accent. Flexoki's paper and base
+   * scale, with Faber Birren's caution blue for links. The dark theme
+   * below swaps in the warm end of Flexoki's dark range.
+   */
+  --color-bg: #fffcf0; /* paper */
+  --color-text: #100f0f; /* black */
+  --color-text-muted: #403e3c; /* base-800 */
+  --color-text-faint: #6f6e69; /* base-600 */
+  --color-border: #dad8ce; /* base-150 */
+  --color-accent: #026289; /* Birren caution blue */
 
   /* Fonts */
   --font-serif:
@@ -50,7 +53,23 @@
   --container-column: 38rem;
 }
 
+/* Follow the reader's system setting. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1c1b1a; /* base-950 */
+    --color-text: #e6e4d9; /* base-100 */
+    --color-text-muted: #b7b5ac; /* base-300 */
+    --color-text-faint: #878580; /* base-500 */
+    --color-border: #343331; /* base-850 */
+    --color-accent: #adced7; /* Birren light blue */
+  }
+}
+
 @layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -237,21 +256,33 @@
 }
 
 /*
- * Shiki is configured with both a light and a dark theme and no default color,
- * so every token carries its colors as custom properties instead of baked-in
- * hex. Browsers that understand var() get the dark theme below; the Kindle
+ * Shiki is configured with Flexoki's light and dark themes and no default
+ * color, so every token carries both colors as custom properties instead of
+ * baked-in hex, and the block follows the page's color scheme. The Kindle
  * Experimental Browser drops these declarations and renders code blocks as
  * plain black on white, which is what its screen wants anyway.
  */
 .astro-code {
-  background-color: var(--shiki-dark-bg);
-  color: var(--shiki-dark);
+  background-color: var(--shiki-light-bg);
+  color: var(--shiki-light);
   border: 1px solid var(--color-border);
 }
 
 .astro-code span {
-  color: var(--shiki-dark);
-  font-style: var(--shiki-dark-font-style, normal);
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style, normal);
+}
+
+@media (prefers-color-scheme: dark) {
+  .astro-code {
+    background-color: var(--shiki-dark-bg);
+    color: var(--shiki-dark);
+  }
+
+  .astro-code span {
+    color: var(--shiki-dark);
+    font-style: var(--shiki-dark-font-style, normal);
+  }
 }
 
 /* Diff lines bleed through the code block's horizontal padding. */
@@ -263,12 +294,12 @@ span.diff {
 }
 
 span.diff.remove {
-  background-color: hsl(355 84% 69% / 0.2);
+  background-color: rgb(209 77 65 / 0.18); /* Flexoki red-400 */
   opacity: 0.7;
 }
 
 span.diff.add {
-  background-color: hsl(105 61% 62% / 0.2);
+  background-color: rgb(135 154 57 / 0.2); /* Flexoki green-400 */
 }
 
 .sr-only {
@@ -297,8 +328,9 @@ span.diff.add {
  * everything above, so they need adaptation rather than a fallback: a dark
  * theme on e-ink is a full-page black fill that ghosts, refreshes slowly and
  * washes out in reading light, and transitions and shadows are wasted on a
- * screen that repaints in whole frames. Flipping the palette variables is
- * enough to re-theme the site, since the colors are all applied through them.
+ * screen that repaints in whole frames. This block comes after the dark theme
+ * so it wins even when the device asks for dark mode, and flipping the
+ * palette variables is enough, since every color is applied through them.
  *
  * `monochrome` catches grayscale panels; `update: slow` catches e-ink panels
  * that report color. Engines that know neither feature simply skip the block.
@@ -311,7 +343,6 @@ span.diff.add {
     --color-text-faint: #555555;
     --color-border: #777777;
     --color-accent: #000000;
-    --color-codeactive: #333333;
   }
 
   /* Links need to read as links without color to help. */

@@ -1,56 +1,74 @@
 import { getCollection } from "astro:content";
 import { OGImageRoute } from "astro-og-canvas";
 
-const collectionEntries = await getCollection("blog");
+// Static instances of Source Serif 4, cut from the variable font the site
+// itself serves: CanvasKit cannot select weights or optical sizes from a
+// variable font, and bundling them keeps the build off the network.
+const FONT_DIR = "src/assets/og-fonts";
 
-const pages = Object.fromEntries(
-  collectionEntries.map(({ id, data }) => [id, data])
-);
+// Warm Flexoki dark, matching the site's dark theme.
+const BG: [number, number, number] = [0x1c, 0x1b, 0x1a];
+const TEXT: [number, number, number] = [0xe6, 0xe4, 0xd9];
+const MUTED: [number, number, number] = [0xb7, 0xb5, 0xac];
+const ACCENT: [number, number, number] = [0xad, 0xce, 0xd7];
+
+const posts = await getCollection("blog");
+
+const pages: Record<string, { title: string; description: string }> = {
+  ...Object.fromEntries(
+    posts.map(({ id, data }) => [
+      id,
+      { title: data.title, description: data.description },
+    ])
+  ),
+  index: {
+    title: "Robert Chandler",
+    description: "Software engineer, musician, and follower of Jesus.",
+  },
+  blog: {
+    title: "Writing",
+    description: "Sometimes I write. Technical, philosophical, or just for fun.",
+  },
+  projects: {
+    title: "Projects",
+    description: "Some of my personal projects: apps, websites, and more.",
+  },
+};
 
 export const { getStaticPaths, GET } = await OGImageRoute({
-  // Tell us the name of your dynamic route segment.
-  // In this case it’s `route`, because the file is named `[...route].ts`.
   param: "route",
-
-  // A collection of pages to generate images for.
-  // The keys of this object are used to generate the path for that image.
-  pages: {
-    ...pages,
-    index: { title: "", description: "", isSpecial: true },
-    blog: { title: "Posts", description: "", isSpecial: true },
-    projects: { title: "Projects", description: "", isSpecial: true },
-  },
-
-  // For each page, this callback will be used to customize the OpenGraph image.
-  getImageOptions: (path, page) => ({
+  pages,
+  getImageOptions: (_path, page) => ({
     title: page.title,
     description: page.description,
-    logo: {
-      path: "public/header.png",
-      size: page.isSpecial ? [600] : [400],
-    },
-    bgGradient: [
-      [26, 29, 35],
-      [26, 29, 35],
-    ], // Dark charcoal background to match --color-bg
-    color: [230, 225, 220], // Warm off-white text to match --color-text
+    // "r-cha.dev" in the description face and size, base-500 on base-950.
+    logo: { path: "src/assets/og-wordmark.png" },
+    bgGradient: [BG],
+    padding: 80,
     fonts: [
-      "https://api.fontsource.org/v1/fonts/libre-baskerville/latin-400-normal.ttf",
-      "https://api.fontsource.org/v1/fonts/source-code-pro/latin-400-normal.ttf",
+      `${FONT_DIR}/SourceSerif4-Display-Semibold.ttf`,
+      `${FONT_DIR}/SourceSerif4-Text-Regular.ttf`,
     ],
+    // Two sizes, the same ratio as the site's display and body type.
     font: {
       title: {
-        families: ["Libre Baskerville"],
-        weight: "Normal",
+        families: ["Source Serif 4 Display"],
+        weight: "SemiBold",
+        size: 72,
+        lineHeight: 1.15,
+        color: TEXT,
       },
       description: {
-        families: ["Source Code Pro"],
-        weight: "Light",
+        families: ["Source Serif 4 Text"],
+        weight: "Normal",
+        size: 47,
+        lineHeight: 1.35,
+        color: MUTED,
       },
     },
     border: {
-      color: [55, 65, 81], // Muted gray border to match --color-border
-      width: 5,
+      color: ACCENT,
+      width: 12,
       side: "inline-start",
     },
   }),

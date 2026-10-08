@@ -3,12 +3,17 @@ import type { CollectionEntry } from "astro:content";
 import PostHeader from "../components/PostHeader.astro";
 import Page from "./Page.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { id: string };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { id, title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<Page title={title} description={description}>
+<Page
+  title={title}
+  description={description}
+  ogImage={id}
+  article={{ published: pubDate, modified: updatedDate }}
+>
   <article>
     <PostHeader {...{ title, description, pubDate, updatedDate }} />
     {heroImage && <img class="mb-12 w-full rounded-md" src={heroImage} alt="" />}

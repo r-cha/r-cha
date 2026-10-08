@@ -10,6 +10,6 @@ const post =
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data}>
+<BlogPost id={post.id} {...post.data}>
   <Content />
 </BlogPost>
