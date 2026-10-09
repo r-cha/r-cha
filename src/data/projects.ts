@@ -27,7 +27,7 @@ export const FEATURED_PROJECTS: Project[] = [
       webp: "/images/webp/concerto-studio.webp",
       fallback: "/images/eink/concerto-studio.jpg",
       width: 1216,
-      height: 684,
+      height: 717,
     },
   },
   {
