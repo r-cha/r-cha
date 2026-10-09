@@ -46,7 +46,7 @@
     'Source Serif 4 Variable', Charter, 'Bitstream Charter', 'Sitka Text',
     Cambria, serif;
   --font-mono:
-    'Source Code Pro Variable', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    'Iosevka Slab Web', ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   /* Layout: one column, everywhere */
@@ -63,6 +63,35 @@
     --color-border: #343331; /* base-850 */
     --color-accent: #adced7; /* Birren light blue */
   }
+}
+
+/*
+ * Iosevka Slab v34.9.0 from the official webfont release, subset with
+ * pyftsubset to Latin, punctuation, arrows, math and box drawing (the
+ * command is in the commit that added the files). OFL - see LICENSE.md.
+ */
+@font-face {
+  font-family: 'Iosevka Slab Web';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/iosevka-slab/IosevkaSlab-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Iosevka Slab Web';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/iosevka-slab/IosevkaSlab-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Iosevka Slab Web';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/iosevka-slab/IosevkaSlab-SemiBold.woff2') format('woff2');
 }
 
 @layer base {
@@ -98,6 +127,8 @@
   samp,
   pre {
     font-family: var(--font-mono);
+    /* Iosevka's ligatures would draw `-->` as an arrow; show code as typed. */
+    font-variant-ligatures: none;
   }
 
   b,
