@@ -31,18 +31,6 @@ export const FEATURED_PROJECTS: Project[] = [
     },
   },
   {
-    name: "Shed",
-    url: "https://shed.concerto.studio/",
-    description: "Learn drum parts faster",
-    image: {
-      avif: "/images/avif/shed.avif",
-      webp: "/images/webp/shed.webp",
-      fallback: "/images/eink/shed.jpg",
-      width: 400,
-      height: 251,
-    },
-  },
-  {
     name: "Descry",
     url: "https://getdescry.com/",
     description: "Name every peak on the horizon",
@@ -69,6 +57,11 @@ export const FEATURED_PROJECTS: Project[] = [
 ];
 
 export const OTHER_PROJECTS: Project[] = [
+  {
+    name: "Shed",
+    url: "https://shed.concerto.studio/",
+    description: "Learn drum parts faster",
+  },
   {
     name: "encourage.nvim",
     url: "https://github.com/r-cha/encourage.nvim",
