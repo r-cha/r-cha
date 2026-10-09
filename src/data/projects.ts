@@ -26,8 +26,8 @@ export const FEATURED_PROJECTS: Project[] = [
       avif: "/images/avif/concerto-studio.avif",
       webp: "/images/webp/concerto-studio.webp",
       fallback: "/images/eink/concerto-studio.jpg",
-      width: 400,
-      height: 236,
+      width: 1216,
+      height: 684,
     },
   },
   {
@@ -43,16 +43,21 @@ export const FEATURED_PROJECTS: Project[] = [
     },
   },
   {
-    name: "Birren Colors",
-    url: "https://birren.vercel.app/",
-    description: "Industrial color palettes from Faber Birren",
+    name: "Descry",
+    url: "https://getdescry.com/",
+    description: "Name every peak on the horizon",
     image: {
-      avif: "/images/avif/birren.avif",
-      webp: "/images/webp/birren.webp",
-      fallback: "/images/eink/birren.jpg",
-      width: 400,
-      height: 210,
+      avif: "/images/avif/descry.avif",
+      webp: "/images/webp/descry.webp",
+      fallback: "/images/eink/descry.jpg",
+      width: 1200,
+      height: 675,
     },
+  },
+  {
+    name: "Omle",
+    url: "https://omle.r-cha.dev/",
+    description: "Private AI art, on your iPhone",
   },
 ];
 
@@ -61,6 +66,11 @@ export const OTHER_PROJECTS: Project[] = [
     name: "encourage.nvim",
     url: "https://github.com/r-cha/encourage.nvim",
     description: "Cure your impostor syndrome",
+  },
+  {
+    name: "Birren Colors",
+    url: "https://birren.vercel.app/",
+    description: "Industrial color palettes from Faber Birren",
   },
   {
     name: "HDRify",
