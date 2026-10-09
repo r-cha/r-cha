@@ -50,14 +50,21 @@ export const FEATURED_PROJECTS: Project[] = [
       avif: "/images/avif/descry.avif",
       webp: "/images/webp/descry.webp",
       fallback: "/images/eink/descry.jpg",
-      width: 1200,
-      height: 675,
+      width: 1216,
+      height: 684,
     },
   },
   {
     name: "Omle",
     url: "https://omle.r-cha.dev/",
     description: "Private AI art, on your iPhone",
+    image: {
+      avif: "/images/avif/omle.avif",
+      webp: "/images/webp/omle.webp",
+      fallback: "/images/eink/omle.jpg",
+      width: 1260,
+      height: 709,
+    },
   },
 ];
 
