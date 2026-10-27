@@ -31,6 +31,30 @@ export const FEATURED_PROJECTS: Project[] = [
     },
   },
   {
+    name: "RACK",
+    url: "https://rack.r-cha.dev/",
+    description: "Drum-processing plugins",
+    image: {
+      avif: "/images/avif/rack.avif",
+      webp: "/images/webp/rack.webp",
+      fallback: "/images/eink/rack.jpg",
+      width: 1216,
+      height: 684,
+    },
+  },
+  {
+    name: "Shed",
+    url: "https://shed.concerto.studio/",
+    description: "Learn drum parts faster",
+    image: {
+      avif: "/images/avif/shed.avif",
+      webp: "/images/webp/shed.webp",
+      fallback: "/images/eink/shed.jpg",
+      width: 1216,
+      height: 684,
+    },
+  },
+  {
     name: "Descry",
     url: "https://getdescry.com/",
     description: "Name every peak on the horizon",
@@ -57,11 +81,6 @@ export const FEATURED_PROJECTS: Project[] = [
 ];
 
 export const OTHER_PROJECTS: Project[] = [
-  {
-    name: "Shed",
-    url: "https://shed.concerto.studio/",
-    description: "Learn drum parts faster",
-  },
   {
     name: "encourage.nvim",
     url: "https://github.com/r-cha/encourage.nvim",
